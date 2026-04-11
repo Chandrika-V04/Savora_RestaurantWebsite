@@ -1,0 +1,1138 @@
+﻿:root {
+    --blue: #061b36;
+    --quicksand: #E6C88C;
+    --white: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ===== BODY ===== */
+body {
+    padding: 0;
+    margin: 0;
+    background-color: var(--blue);
+}
+.menu-banner {
+    position: relative;
+    height: 320px;
+    width: 100%;
+    background: linear-gradient( rgba(7, 18, 34, 0.80), rgba(11, 37, 69, 0.70) ), url("/images/main.jpg") no-repeat center center; /* Path updated */
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+.banner-overlay {
+    text-align: center;
+    padding: 20px;
+}
+.banner-title {
+    color: var(--quicksand);
+    font-size: 56px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.banner-subtitle {
+    color: var(--white);
+    font-size: 18px;
+}
+.menu-buttons {
+    margin-top: 25px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+.menu-btn {
+    padding: 10px 26px;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+    .menu-btn.outline {
+        border: 2px solid var(--quicksand);
+        color: var(--quicksand);
+        background: transparent;
+    }
+        .menu-btn.outline:hover {
+            background: var(--quicksand);
+            color: var(--blue);
+        }
+.cuisines-wrapper {
+    background-color: var(--blue);
+    padding: 80px 20%;
+}
+/* Row Layout */
+.cuisine-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    margin-bottom: 90px;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    /* Reverse Layout */
+    .cuisine-row.reverse {
+        flex-direction: row-reverse;
+    }
+
+/* Image */
+.cuisine-image img {
+    width: 100%;
+    max-width: 200px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+/* Text */
+.cuisine-text {
+    max-width: 450px;
+}
+
+    .cuisine-text h3 {
+        color: var(--quicksand);
+        font-size: 28px;
+        margin-bottom: 15px;
+    }
+
+    .cuisine-text p {
+        color: var(--white);
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .cuisine-row {
+        flex-direction: column;
+        text-align: center;
+    }
+        .cuisine-row.reverse {
+            flex-direction: column;
+        }
+}
+
+/* ===== VEG PAGE ===== */
+.veg-banner {
+    background: var(--blue);
+    padding: 80px 0;
+    text-align: center;
+}
+    .veg-banner h1 {
+        color: var(--quicksand);
+        font-size: 48px;
+        margin-bottom: 10px;
+    }
+    .veg-banner p {
+        color: white;
+        font-size: 18px;
+    }
+.veg-menu {
+    background: var(--blue);
+    padding: 60px 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-items: center;
+}
+.veg-card {
+    background: #102e57;
+    border: 2px solid #E6C88C;
+    border-radius: 14px;
+    padding: 0px;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 0px; /* remove auto */
+    text-align: center;
+    transition: 0.3s ease;
+}
+    .veg-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .veg-card img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+    .veg-card h3 {
+        font-size: 16px;
+        color: #E6C88C;
+        margin-bottom: 10px;
+    }
+
+    .veg-card p {
+        color: white;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+.price {
+    color: #E6C88C;
+    font-weight: bold;
+}
+
+.back-home {
+    background: var(--blue);
+    text-align: center;
+    padding: 40px;
+}
+
+    .back-home a {
+        color: #E6C88C;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+.veg-banner {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    height: 100vh;
+    padding: 0 !important;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.veg-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    object-position: center; 
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+
+.veg-banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(0, 60, 120, 0.20);
+    /* transparent dark blue */
+}
+
+.veg-overlay {
+    position: relative;
+    color: white !important;
+    font-size: 22px;
+}
+
+    .veg-overlay h1 {
+        color: white !important;
+        font-size: 65px !important;
+        font-weight: bold;
+    }
+/* ===== LUXURY SECTION STYLES ===== */
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+.menu-nav-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(11, 37, 69, 0.95); /* Semi-transparent navy */
+    backdrop-filter: blur(10px);
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(230, 200, 140, 0.3);
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-item {
+    color: #E6C88C;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    padding: 8px 10px;
+    border: 1px solid transparent;
+    transition: 0.3s ease;
+}
+
+    .nav-item:hover {
+        border-color: #E6C88C;
+        border-radius: 20px;
+    }
+
+/* Section Spacing */
+.menu-category-block {
+    padding: 80px 5%;
+    background: var(--blue);
+}
+.category-title {
+    color: #E6C88C;
+    font-size: 32px;
+    margin-bottom: 40px;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Grid & Cards (Matching your style) */
+.luxury-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 280px));
+    gap: 25px;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.menu-card {
+    background: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+/* Special Styling for Must-Try Items */
+.featured-must-try {
+    border: 1px solid #E6C88C !important; /* Gold border */
+    box-shadow: 0 0 20px rgba(230, 200, 140, 0.2); /* Soft gold glow */
+    position: relative;
+    transform: scale(1.02); /* Slightly larger to stand out */
+}
+
+.must-try-tag {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: linear-gradient(135deg, #E6C88C, #b38f4d);
+    color: #0B2545;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom-left-radius: 12px;
+    z-index: 10;
+}
+
+.star {
+    margin-right: 5px;
+}
+
+.chef-note {
+    font-size: 10px;
+    color: #E6C88C;
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Hover effect specifically for Must-Try */
+.featured-must-try:hover {
+    box-shadow: 0 0 30px rgba(230, 200, 140, 0.4);
+    transform: scale(1.05);
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #E6C88C; /* Your gold color */
+    color: #0B2545; /* Your dark blue */
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    display: none; /* Hidden by default */
+    z-index: 1000;
+    transition: 0.3s;
+}
+
+    .back-to-top:hover {
+        transform: translateY(-5px);
+        background: #fff;
+    }
+
+/* Container & Header */
+.menu-category-block {
+    background: #0B2545; /* Dark Navy from your screenshot */
+    padding: 100px 5%;
+    color: white;
+}
+
+.category-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.gold-subtitle {
+    color: #E6C88C; /* Gold accent */
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 12px;
+}
+
+.category-title {
+    font-size: 42px;
+    margin: 15px 0;
+    font-family: 'Playfair Display', serif; /* Use a serif font for luxury */
+}
+
+.title-divider {
+    width: 50px;
+    height: 2px;
+    background: #E6C88C;
+    margin: 0 auto;
+}
+.menu-grid {
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Exactly 4 equal columns */
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* THE CARD: White, clean, and professional */
+.veg-card {
+    background: #FFFFFF !important;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+    .veg-card:hover {
+        transform: translateY(-8px);
+    }
+
+/* IMAGE FIX: Forces height and visibility */
+.card-img-box {
+    width: 100%;
+    height: 160px; /* Compact height for 4-in-a-row */
+    position: relative;
+    overflow: hidden;
+}
+
+    .card-img-box img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover !important; /* Prevents squishing */
+    }
+
+/* TEXT VISIBILITY: Dark colors for White background */
+.card-content {
+    padding: 15px;
+}
+
+    .card-content h3 {
+        color: #0B2545 !important; /* Dark Navy Dish Name */
+        font-size: 16px;
+        margin: 0 0 8px 0;
+        font-weight: 700;
+    }
+
+    .card-content p {
+        color: #555 !important; /* Dark Grey for descriptions */
+        font-size: 12px;
+        line-height: 1.4;
+        margin-bottom: 12px;
+    }
+
+.price-text {
+    color: #b38f4d !important; /* Gold for the price */
+    font-weight: 800;
+    font-size: 14px;
+}
+
+/* SIGNATURE BADGE */
+.signature-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #E6C88C;
+    color: #0B2545;
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+/* RESPONSIVE: Drops to 2 columns on small screens */
+@media (max-width: 1000px) {
+    .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+}
+/* Section Header Styling */
+.category-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.category-title {
+    color: #E6C88C; /* Gold Title on Navy Background */
+    font-size: 32px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* THE GRID: Forces 4 items in a row */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* THE CARD: Clean White */
+.veg-card {
+    background: #FFFFFF !important;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 1px solid #e0e0e0;
+}
+
+/* TEXT VISIBILITY: High Contrast */
+.card-content h3 {
+    color: #0B2545 !important; /* Dark Navy for Dish Name */
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.card-content p {
+    color: #555555 !important; /* Dark Grey for description */
+    font-size: 12px;
+}
+
+.price-text {
+    color: #b38f4d !important; /* Rich Gold for price */
+    font-weight: 800;
+}
+
+/* 1. THE FLOATING NAV */
+.menu-nav-sticky {
+    position: sticky;
+    top: 20px;
+    z-index: 1000;
+    background: rgba(11, 37, 69, 0.85);
+    backdrop-filter: blur(15px);
+    margin: 20px auto;
+    width: fit-content;
+    padding: 10px 40px;
+    border-radius: 50px;
+    border: 1px solid rgba(230, 200, 140, 0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    display: flex;
+    gap: 30px;
+}
+
+/* 2. LUXURY TYPOGRAPHY */
+.veg-card h3 {
+    font-family: 'Playfair Display', serif;
+    letter-spacing: 0.5px;
+    font-style: italic;
+    color: #0B2545 !important;
+    font-size: 20px;
+}
+
+.veg-card p {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-size: 10px !important;
+    color: #555 !important;
+}
+
+/* 3. THE GOLD GLOW HOVER */
+.veg-card {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+    background: #fff !important;
+}
+
+    .veg-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border: 1px solid #E6C88C;
+        box-shadow: 0 20px 40px rgba(230, 200, 140, 0.2);
+    }
+
+        .veg-card:hover img {
+            transform: scale(1.1) rotate(1deg);
+        }
+
+/* 4. GOLDEN DIVIDERS & GRID SPACING */
+.title-divider {
+    width: 120px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #E6C88C, transparent);
+    margin: 15px auto 40px auto;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px; /* Big gaps feel more expensive */
+    padding: 40px 20px;
+}
+
+
+.sold-out {
+    position: relative;
+    filter: grayscale(100%); /* Makes it look unavailable */
+    opacity: 0.7;
+}
+
+    .sold-out::after {
+        content: "UNAVAILABLE TODAY";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-15deg);
+        background: #d4af37; /* Luxury Gold */
+        color: #0b2545;
+        padding: 8px 15px;
+        font-weight: bold;
+        font-size: 12px;
+        white-space: nowrap;
+        border: 1px solid #0b2545;
+    }
+/* Premium Filter Buttons Styling */
+.filter-btn {
+    background: rgba(255, 255, 255, 0.05); /* Very subtle glass look */
+    border: 1px solid rgba(230, 200, 140, 0.6); /* Gold border */
+    color: #E6C88C; /* Gold text */
+    padding: 8px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Montserrat', sans-serif;
+    transition: all 0.3s ease;
+    margin-left: 10px;
+}
+
+    .filter-btn:hover {
+        background: rgba(230, 200, 140, 0.2);
+        transform: translateY(-2px);
+    }
+
+    .filter-btn.active {
+        background: #E6C88C;
+        color: #0B2545; /* Dark navy text when selected */
+        font-weight: bold;
+        box-shadow: 0 0 15px rgba(230, 200, 140, 0.4);
+    }
+
+/* Fix for the navigation links (Appetizers, Mains, Soups) */
+.menu-nav-sticky a {
+    color: #E6C88C;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+    .menu-nav-sticky a:hover {
+        text-shadow: 0 0 10px rgba(230, 200, 140, 0.8);
+    }
+
+/* Non-Veg Specific Accents */
+.menu-nav-sticky .nav-row a {
+    margin: 0 !important; 
+    padding: 5px 10px;
+    color: #E6C88C;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Keeps words on one line */
+    transition: 0.3s;
+}
+
+.dessert-page-wrapper {
+    background-color: var(--blue);
+    min-height: 100vh;
+    padding: 20px;
+    transition: none;
+}
+
+/* Glassmorphism Card Style */
+.dessert-card {
+    background: #ffffff;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(230, 200, 140, 0.15);
+    border-radius: 20px;
+    padding: 0px;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .dessert-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        border: 1px solid #E6C88C;
+        box-shadow: 0 20px 40px rgba(230, 200, 140, 0.2);
+    }
+
+.dessert-mood-nav {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 50px;
+}
+
+.mood-btn {
+    background: transparent;
+    border: 1px solid #E6C88C;
+    color: #E6C88C;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+    .mood-btn.active {
+        background: #E6C88C;
+        color: #0a192f;
+    }
+
+.pairing-note {
+    font-size: 0.8rem;
+    color: #E6C88C;
+    margin-top: 12px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
+.signature-tag {
+    position: absolute;
+    top: 0 !important;
+    right: 0 !important;
+    left: auto !important;
+    /* Forces the tag to only be as wide as the text */
+    width: auto !important;
+    max-width: fit-content !important;
+    margin: 0 !important;
+    /* Reduced padding to make the box smaller */
+    padding: 4px 10px !important;
+    /* Smaller font size so it takes up less vertical space */
+    font-size: 0.6rem !important;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    background-color: #E6C88C;
+    color: #0a192f;
+    /* Keeps it flush with your card's 20px corner */
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 20px;
+    z-index: 100;
+    white-space: nowrap; /* Prevents text from breaking into two lines */
+}
+/* Center the bar perfectly */
+.centered-nav {
+    position: sticky;
+    top: 20px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: fit-content;
+    z-index: 1000;
+    background: rgba(11, 37, 69, 0.98);
+    padding: 15px 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(230, 200, 140, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style for the button with subtitle */
+.filter-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    color: #E6C88C;
+    border: 1px solid rgba(230, 200, 140, 0.2);
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    min-width: 120px;
+}
+
+.btn-desc {
+    font-size: 9px;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-top: 4px;
+    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.filter-btn.active {
+    background: #E6C88C;
+    color: #0B2545;
+}
+
+    .filter-btn.active .btn-desc {
+        color: #0B2545;
+        opacity: 0.8;
+    }
+
+
+
+/* THE CENTERING FIX */
+.centered-nav {
+    position: sticky;
+    top: 25px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: fit-content;
+    z-index: 1000;
+    /* GLASSMORPHISM & PILL SHAPE */
+    background: rgba(10, 25, 47, 0.95); /* Deep Navy */
+    backdrop-filter: blur(20px);
+    padding: 15px 55px;
+    border-radius: 60px;
+    border: 1px solid rgba(230, 200, 140, 0.3);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* NAV LINK STYLING */
+.nav-row {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 15px;
+}
+
+    .nav-row a {
+        color: #E6C88C;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+
+/* FILTER BUTTONS */
+.filter-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+    color: #E6C88C;
+    border: 1px solid rgba(230, 200, 140, 0.2);
+    padding: 10px 22px;
+    border-radius: 30px; /* Rounded buttons like Veg/Non-Veg page */
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+    .filter-btn.active {
+        background: #E6C88C;
+        color: #0A192F;
+        box-shadow: 0 0 20px rgba(230, 200, 140, 0.4);
+    }
+
+.btn-desc {
+    font-size: 9px;
+    opacity: 0.7;
+    text-transform: capitalize;
+    margin-top: 3px;
+}
+
+/* WHITE CARD STYLE */
+.veg-card {
+    background: #FFFFFF !important;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+    .veg-card:hover {
+        transform: translateY(-10px);
+    }
+
+.signature-tag {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #E6C88C;
+    color: #0A192F;
+    padding: 5px 15px;
+    font-size: 10px;
+    font-weight: 800;
+    border-bottom-left-radius: 15px;
+}
+
+/* non alcoholic */
+.menu-nav-sticky.centered-nav {
+    position: sticky;
+    top: 25px;
+    /* Absolute centering logic */
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: auto;
+    max-width: fit-content;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0px; /* Space between the link row and the filter row */
+    /* Luxury Glassmorphism Aesthetic */
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(25px);
+    padding: 12px 35px;
+    border-radius: 60px; /* Essential for the pill shape */
+    border: 1px solid rgba(230, 200, 140, 0.4);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+}
+
+/* HORIZONTAL ROW LAYOUT */
+.nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0px; /* Spacing between all items */
+    justify-content: center;
+}
+
+    .nav-row a {
+        color: #E6C88C;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding: 5px 10px;
+    }
+
+/* THE FILTER BUTTONS ROW */
+.filter-group {
+    display: flex;
+    gap: 12px; /* Controlled space between buttons */
+    justify-content: center;
+}
+
+/* VERTICAL DIVIDER BETWEEN LINKS AND BUTTONS */
+.filter-divider {
+    width: 1px;
+    height: 25px;
+    background: rgba(230, 200, 140, 0.3);
+    margin: 0 10px;
+    gap: 10px;
+}
+
+/* BUTTON STYLING */
+.filter-btn {
+    background: transparent;
+    color: #E6C88C;
+    border: 1px solid rgba(230, 200, 140, 0.3);
+    padding: 8px 22px;
+    border-radius: 30px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+    /* ACTIVE STATE: MATCHES THE GOLD GLOW */
+    .filter-btn.active {
+        background: #E6C88C;
+        color: #0A192F;
+        box-shadow: 0 0 20px rgba(230, 200, 140, 0.4);
+        border-color: #E6C88C;
+    }
+
+
+/*alcohol section*/
+
+/* THE ALCOHOL NAVIGATION PILL FIX */
+.menu-nav-sticky.centered-nav {
+    position: sticky;
+    top: 20px;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: fit-content !important; /* Prevents it from hitting the screen edges */
+    max-width: 95vw; /* Limits maximum width on large screens */
+    min-height: 60px;
+    height: auto !important;
+    z-index: 1000;
+    background: rgba(10, 25, 47, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 10px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(230, 200, 140, 0.4);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.6);
+    /* Center everything inside */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-row {
+    display: flex;
+    flex-wrap: wrap; /* Allows items to go to a second line if needed */
+    justify-content: center;
+    align-items: center;
+    gap: 10px; /* Tightens space between items */
+    width: 100%;
+}
+
+    .nav-row a, .filter-btn {
+        white-space: nowrap; /* Keeps individual names on one line */
+        padding: 8px 15px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #E6C88C;
+        text-decoration: none;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+/* Vertical Divider Fix */
+.filter-divider {
+    display: inline-block;
+    width: 1px;
+    height: 20px;
+    background: rgba(230, 200, 140, 0.3);
+    margin: 0 5px;
+}
+
+.filter-btn.active {
+    background: #E6C88C !important;
+    color: #0B2545 !important;
+    border-radius: 25px;
+}
+/* Responsive adjustments for mobile */
+@media (max-width: 900px) {
+    .menu-nav-sticky.centered-nav {
+        border-radius: 20px;
+        padding: 15px;
+    }
+
+    .nav-row {
+        gap: 8px;
+    }
+
+        .nav-row a {
+            font-size: 11px;
+        }
+}
+
+/* WISH LIST BUTTON*/
+
+.wishlist-btn {
+    background: none !important;
+    border: 1px solid rgba(230, 200, 140, 0.3) !important; /* Circular border */
+    color: #E6C88C !important;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; /* Makes it a circle */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+    .wishlist-btn:hover {
+        background: rgba(230, 200, 140, 0.1) !important;
+        transform: rotate(90deg); /* Cool rotation effect for the plus */
+    }
+
+    /* Greenish gold glow when checked */
+    .wishlist-btn.active-btn {
+        border-color: #E6C88C !important;
+        background: #E6C88C !important;
+        color: #0A192F !important; /* Dark icon on gold background */
+        transform: rotate(0deg);
+    }
+
+/* back button*/
+.floating-controls-wrapper {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column; /* Stacks them vertically */
+    gap: 15px; /* Adds space between them */
+    z-index: 9999;
+    align-items: center;
+}
+.floating-action-btn {
+    background: #E6C88C;
+    color: #0A192F;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Keep badge relative to this */
+}
+    .floating-action-btn:hover {
+        transform: scale(1.1) translateY(-5px);
+        background: #fff;
+    }
+#list-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    background: #FF4B2B;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    min-width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid #0A192F;
+}

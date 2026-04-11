@@ -1,0 +1,165 @@
+﻿@page
+@model Restuarant.Pages.GallerycshtmlModel
+@{
+    ViewData["Title"] = "Gallery";
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery</title>
+    <link rel="stylesheet" href="~/css/Gallery.css" />
+</head>
+<body>
+
+    <section class="gallery-header">
+        <h1>Our Gallery</h1>
+        <p>A glimpse of our food, ambience & moments</p>
+    </section>
+
+    <!-- Filter Buttons -->
+    <div class="gallery-filters">
+        <a href="#whitefield" class="gallery-btn">Whitefield</a>
+        <a href="#hennur" class="gallery-btn">Hennur</a>
+        <a href="#events" class="gallery-btn">Events</a>
+        <a href="#decor" class="gallery-btn">Decor</a>
+    </div>
+
+    <section id="whitefield" class="gallery-section">
+        <h2>Whitefield Branch</h2>
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="~/images/resto2.jpg" alt="Whitefield Interior">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/restomain.jpg" alt="Main Dining">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/terrace1.jpg" alt="Terrace View">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/interior 1.jpg" alt="Luxury Interior">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/closeup.png" alt="Fine Details">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/bigparty.jpg" alt="Party Hall">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="hennur" class="gallery-section">
+        <h2>Hennur Branch</h2>
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="~/images/resto1.jpg" alt="Hennur Interior">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/bigparty2.jpg" alt="Celebration Hall">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/hennur1.jpg" alt="Hennur Seating">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/terrace2.jpg" alt="Open Terrace">
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/bdaydecor2.jpg" alt="Birthday Decor">
+            </div>
+
+        </div>
+    </section>
+
+    <section id="events" class="gallery-section">
+        <h2>Events & Celebrations</h2>
+
+        <div class="event-wrapper">
+            <div class="event-video">
+                <video autoplay muted loop playsinline controls>
+                    <source src="~/Images/event.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <div class="event-content">
+                <span class="cursive">Celebrate. Savor. Cherish.</span>
+                <p>
+                    Experience unforgettable moments at our restaurant with live music,
+                    birthday celebrations, family gatherings, and private parties.
+                    Our beautifully designed ambience and professional arrangements
+                    make every event truly special.
+                </p>
+            </div>
+        </div>
+
+        <div class="event-wrapper">
+            <div class="event-content">
+                <span class="cursive">Celebrate life, savor every moment.</span>
+                <p>
+                    Celebrate life’s most beautiful moments with us. From elegant birthday parties
+                    and intimate family gatherings to vibrant New Year celebrations and live music nights,
+                    our restaurant offers the perfect setting for unforgettable experiences.
+                    With a warm ambience, curated décor, and exceptional service, every celebration
+                    becomes a cherished memory.
+                </p>
+            </div>
+
+            <div class="event-video">
+                <video autoplay muted loop playsinline controls>
+                    <source src="~/Images/celebration.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section id="decor" class="gallery-section">
+        <h2>Decor & Ambience</h2>
+        <div class="gallery-container">
+
+            <div class="gallery-item">
+                <img src="~/Images/fam.jpg" alt="Family Dining">
+                <div class="overlay-text">Family Moments</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/bday3.jpg" alt="Birthday Setup">
+                <div class="overlay-text">Birthday Celebration</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/decor2.jpg" alt="Luxury Decor">
+                <div class="overlay-text">Luxury Decor</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/bdaydecor2.jpg" alt="Event Decor">
+                <div class="overlay-text">Event Decoration</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/decor3.jpg" alt="Ambience Lighting">
+                <div class="overlay-text">Ambience Lighting</div>
+            </div>
+
+            <div class="gallery-item">
+                <img src="~/Images/bdaydecor.jpg" alt="Custom Decor">
+                <div class="overlay-text">Custom Event Setup</div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

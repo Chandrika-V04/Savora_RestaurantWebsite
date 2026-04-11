@@ -1,0 +1,191 @@
+﻿@page "{id:int}"
+@model Restuarant.Pages.Admin.EditReservationModel
+@{
+    Layout = "_AdminLayout";
+}
+<style>
+    .form-header {
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(182, 138, 46, 0.2);
+        padding-bottom: 20px;
+    }
+
+        .form-header h2 {
+            font-weight: 200;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin: 0;
+        }
+
+    .edit-card {
+        background: var(--white);
+        max-width: 800px;
+        padding: 40px;
+        border-radius: 4px;
+        border: 1px solid rgba(6, 27, 54, 0.05);
+        box-shadow: 0 10px 30px rgba(6, 27, 54, 0.02);
+    }
+
+    .savora-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .full-width {
+        grid-column: span 2;
+    }
+
+    .field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+        .field-group label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+            color: var(--golden);
+        }
+
+    .savora-input {
+        padding: 12px 16px;
+        border: 1px solid rgba(6, 27, 54, 0.1);
+        border-radius: 2px;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.95rem;
+        color: var(--blue);
+        background: var(--white2);
+        transition: all 0.3s ease;
+    }
+
+        .savora-input:focus {
+            outline: none;
+            border-color: var(--golden);
+            background: var(--white);
+            box-shadow: 0 0 0 3px rgba(182, 138, 46, 0.05);
+        }
+
+    .btn-update {
+        grid-column: span 2;
+        margin-top: 20px;
+        padding: 15px;
+        background: var(--blue);
+        color: var(--quicksand);
+        border: 1px solid var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+        .btn-update:hover {
+            background: var(--golden);
+            border-color: var(--golden);
+            color: var(--white);
+        }
+
+    /* ✅ Success Message */
+    .success-message {
+        background: #eaf7ef;
+        color: #2e7d32;
+        padding: 12px 18px;
+        border-left: 4px solid #2e7d32;
+        margin-bottom: 20px;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+    }
+
+    /* ❌ Validation Error */
+    .validation-summary {
+        background: #fdecea;
+        color: #b71c1c;
+        padding: 12px;
+        margin-bottom: 20px;
+        border-left: 4px solid #b71c1c;
+        font-size: 0.85rem;
+    }
+
+</style>
+
+<!-- ✅ SUCCESS MESSAGE -->
+@if (TempData["SuccessMessage"] != null){
+    <div class="success-message">
+        @TempData["SuccessMessage"]</div>}
+<div class="form-header">
+    <h2>Edit Reservation</h2></div>
+<div class="edit-card">
+    <!-- ❗ VALIDATION ERRORS -->
+    <div asp-validation-summary="All" class="validation-summary"></div>
+    <form method="post" class="savora-form">
+        <input type="hidden" asp-for="Reservation.Id" />
+        <div class="field-group full-width">
+            <label>Full Name</label>
+            <input asp-for="Reservation.Name" class="savora-input" /></div>
+        <div class="field-group">
+            <label>Phone Number</label>
+            <input asp-for="Reservation.PhoneNumber" class="savora-input" /></div>
+        <div class="field-group">
+            <label>Email Address</label>
+            <input asp-for="Reservation.Email" class="savora-input" /></div>
+        <div class="field-group">
+            <label>Reservation Date</label>
+            <input asp-for="Reservation.Date" type="date" class="savora-input" /></div>
+        <div class="field-group">
+            <label>Preferred Time</label>
+            <input asp-for="Reservation.Time" type="time" class="savora-input" /></div>
+        <div class="field-group">
+            <label>Number of Guests</label>
+            <input asp-for="Reservation.NoOfPeople" type="number" min="1" class="savora-input" /></div>
+        <div class="field-group">
+            <label>Location</label>
+            <select asp-for="Reservation.Location" class="savora-input">
+                <option value="">Select Branch</option>
+                <option value="Whitefield">Whitefield</option>
+                <option value="Hennur">Hennur</option></select></div>
+        <div class="field-group">
+            <label>Seating Preference</label>
+            <select asp-for="Reservation.SeatingPreference" class="savora-input">
+                <option value="">Select Seating Preference</option>
+                <option value="Indoor">Indoor Seating</option>
+                <option value="Outdoor">Outdoor Seating</option>
+                <option value="Terrace">Terrace / Rooftop</option>
+                <option value="Family">Family Area</option>
+                <option value="Couple">Couple Seating</option></select> </div>
+        <div class="field-group">
+            <label>Event Type</label>
+            <select asp-for="Reservation.EventType" class="savora-input">
+                <option value="">None</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Corporate">Corporate Event</option>
+                <option value="PrivateParty">Private Party</option></select></div>
+        <div class="field-group">
+            <label>Decor Theme</label>
+            <select asp-for="Reservation.DecorTheme" class="savora-input">
+                <option value="">No Decor</option>
+                <option value="Balloon">Balloon Theme</option>
+                <option value="Floral">Floral Theme</option>
+                <option value="Romantic">Romantic Theme</option>
+                <option value="Custom">Custom Theme</option></select></div>
+        <div class="field-group">
+            <label>Food Preference</label>
+            <select asp-for="Reservation.FoodPreference" class="savora-input">
+                <option value="">Select Preference</option>
+                <option value="Veg">Veg</option>
+                <option value="NonVeg">Non-Veg</option></select></div>
+        <div class="field-group full-width">
+            <label>Status</label>
+            <select asp-for="Reservation.Status" class="savora-input">
+                <option value="Pending">Pending</option>
+                <option value="Approved">Approved</option>
+                <option value="Completed">Completed</option>
+                <option value="Cancelled">Cancelled</option></select></div>
+        <button type="submit" class="btn-update">
+            Update Reservation Details</button>
+    </form>
+</div>

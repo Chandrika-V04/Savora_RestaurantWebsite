@@ -1,0 +1,135 @@
+﻿@page
+@model Restuarant.Pages.Admin.MessagesModel
+@{
+    Layout = "_AdminLayout";
+}
+<style>
+
+    :root {
+        --blue: #061b36;
+        --quicksand: #E6C88C;
+        --white: #FFFFFF;
+        --golden: #B68A2E;
+        --white2: #fcfcfa;
+    }
+
+    body {
+        background: var(--white2);
+    }
+
+    /* Page Title */
+
+    .page-title {
+        color: var(--blue);
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+
+    /* Table Container */
+
+    .messages-container {
+        background: var(--white);
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    }
+
+    /* Table */
+
+    .messages-table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        /* Table Header */
+
+        .messages-table thead {
+            background: var(--blue);
+            color: var(--white);
+        }
+
+        .messages-table th {
+            padding: 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        /* Table Rows */
+
+        .messages-table td {
+            padding: 14px;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Hover Effect */
+
+        .messages-table tbody tr:hover {
+            background: var(--white2);
+        }
+
+    /* Email Style */
+
+    .email-text {
+        color: var(--golden);
+        font-weight: 500;
+    }
+
+    /* Subject Badge */
+
+    .subject-badge {
+        background: var(--quicksand);
+        padding: 5px 10px;
+        border-radius: 6px;
+        font-size: 13px;
+        color: var(--blue);
+    }
+
+    /* Message */
+
+    .message-text {
+        color: #444;
+    }
+
+</style>
+
+
+<h2 class="page-title">Customer Messages</h2>
+
+<div class="messages-container">
+
+    <table class="messages-table">
+
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var msg in Model.MessagesList)
+            {
+                <tr>
+                    <td>@msg.Name</td>
+
+                    <td class="email-text">@msg.Email</td>
+
+                    <td>
+                        <span class="subject-badge">
+                            @msg.Subject
+                        </span>
+                    </td>
+
+                    <td class="message-text">@msg.Message</td>
+
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+</div>

@@ -1,0 +1,205 @@
+﻿@page
+@model Restuarant.Pages.AboutModel
+@{
+    ViewData["Title"] = "About";
+    Layout = "_Layout";
+}
+
+<link rel="stylesheet" href="~/css/About.css">
+<href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+
+   
+    <section class="our-story-banner">
+        <h1>Our Story</h1>
+    </section>
+
+    <section class="who-we-are">
+        <div class="who-container">
+            <div class="who-image">
+                <div class="who-image-wrapper">
+                    <img src="/Images/dine.jpg" alt="Restaurant Interior">
+                </div>
+            </div>
+            <div class="who-content">
+                <h2 class="section-title">Who We Are</h2>
+                <span class="who-tagline">Rooted in tradition. Refined for today.</span>
+
+                <p class="section-paragraph">
+                    We are a celebration of India’s rich culinary heritage, thoughtfully
+                    reimagined for the modern palate. By sourcing our ingredients directly
+                    from farmers and trusted local producers, we ensure every dish begins
+                    with purity and purpose.
+                </p><br/>
+
+                <p class="section-paragraph">
+                    Our kitchen blends time-honored recipes with contemporary techniques,
+                    creating flavors that feel familiar yet refined. More than a restaurant,
+                    we are a space where food, warmth, and moments come together.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="quote-banner">
+        <div class="quote-container">
+            <p class="quote-text">
+                “Rooted in Tradition. Refined for Today.”
+            </p>
+        </div>
+    </section>
+
+
+
+    <section class="cuisine-section">
+        <div class="cuisine-container">
+
+            <div class="section-image">
+                <img src="~/Images/spices1.jpg" alt="Luxury Indian fine dining dish">
+            </div>
+
+            <div class="cuisine-text">
+                <span class="farm-subtitle">Our Cuisine</span>
+                <h2 class="section-title">
+                    INDIAN ROOTS<br>
+                    <span>MODERN EXPRESSIONS</span>
+                </h2>
+
+                <p class="section-paragraph">
+                    Our cuisine celebrates the richness of Indian flavors, reimagined
+                    with a contemporary touch. Each dish is inspired by regional
+                    traditions, crafted with seasonal ingredients, and presented
+                    with modern elegance.
+                </p>
+            </div>
+
+        </div>
+    </section>
+    <section class="farm-split">
+        <div class="farm-split-container">
+
+            <!-- TEXT SIDE -->
+            <div class="farm-text">
+                <span class="farm-subtitle">From Farm to Fork</span>
+
+                <h2 class="section-title">
+                    ROOTED IN TRADITION<br>
+                    <span>CRAFTED WITH CARE</span>
+                </h2>
+
+                <p class="section-paragraph">
+                    Our ingredients come directly from trusted farmers and local
+                    producers. We honor traditional Indian flavors while presenting
+                    them with a modern culinary touch — fresh, ethical, and pure.
+                </p>
+
+                <div class="farm-icons">
+                    <div class="icon">
+                        <span>🌾</span>
+                        <p>Fresh</p>
+                    </div>
+                    <div class="icon">
+                        <span>🚜</span>
+                        <p>Local</p>
+                    </div>
+                    <div class="icon">
+                        <span>🌿</span>
+                        <p>Pure</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- IMAGE SIDE -->
+            <div class="section-image">
+                <img src="/Images/about3.jpg" alt="Fresh ingredients">
+            </div>
+
+        </div>
+    </section>
+
+
+   
+    <section class="features">
+        <div class="features-container">
+
+            <div class="feature-card">
+                <div class="icon">🍽️</div>
+                <h3>Fresh Products</h3>
+                <p>We hand-select premium ingredients daily, partnering with local growers to guarantee unmatched freshness and exceptional quality.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">👨‍🍳</div>
+                <h3>Skilled Chefs</h3>
+                <p>Led by award-winning culinary artists, our kitchen team transforms the finest ingredients into extraordinary creations.</p>
+            </div>
+
+            <div class="feature-card">
+                <div class="icon">📜</div>
+                <h3>Unique Recipes</h3>
+                <p>Inspired by global flavors and refined techniques, our exclusive recipes bring a distinctive taste experience to every table.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    
+
+    <section class="experience-section">
+        <div class="experience-container">
+
+            <!-- IMAGE -->
+            <div class="section-image">
+                <img src="/Images/dine.jpg" alt="Restaurant Experience">
+            </div>
+
+            <!-- CONTENT -->
+            <div class="experience-content">
+                <span class="farm-subtitle">The Experience</span>
+                <h2 class="section-title">
+                    MORE THAN A MEAL<br>
+                    <span>IT’S A MOMENT</span>
+                </h2>
+
+                <p class="section-paragraph">
+                    Step into a space where every detail is thoughtfully curated —
+                    from the warmth of our hospitality to the rhythm of flavors
+                    that unfold with every course. Here, dining is not rushed,
+                    it is savored.
+                </p>
+
+                <div class="experience-highlights">
+                    <div class="highlight">Elegant Ambience</div>
+                    <div class="highlight">Warm Hospitality</div>
+                    <div class="highlight">Curated Music</div>
+                    <div class="highlight">Memorable Celebrations</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="features-section">
+        <div class="features-header">
+            <span class="farm-subtitle">our unique</span>
+            <h2 class="section-title">FEATURES & SERVICES</h2>
+        </div>
+
+        <div class="features-container">
+            <div class="feature-box">
+                <h3>Regional Inspiration</h3>
+                <p>Flavors drawn from India’s diverse culinary heritage.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Modern Techniques</h3>
+                <p>Traditional recipes refined with contemporary methods.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>Seasonal Menus</h3>
+                <p>Fresh creations that evolve with the seasons.</p>
+            </div>
+        </div>
+    </section>

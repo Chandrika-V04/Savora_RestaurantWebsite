@@ -1,0 +1,297 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Savora</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+
+
+<body>
+    <header class="site-header">
+        <nav class="navbar">
+            <!-- Logo -->
+            <div class="logo">
+                <a asp-page="/Index">Savora</a>
+            </div>
+
+            <!-- Navigation Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a asp-page="/Index">Home</a></li>
+                <li><a asp-page="/About">About Us</a></li>
+                <li><a asp-page="/Menu">Menu</a></li>
+                <li><a asp-page="/Gallery">Gallery</a></li>
+                <li><a asp-page="/ReserveSpot">Booking</a></li>
+                <li><a asp-page="/Contact">Contact</a></li>
+            </ul>
+
+            <!-- Hamburger Icon -->
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+
+        <main role="main">
+            @RenderBody()
+        </main>
+
+    <footer class="site-footer">
+
+        <div class="footer-container">
+
+            <!-- Footer Logo / Brand -->
+            <div class="footer-brand">
+                <h3>Home of Flavours</h3>
+                <p>Authentic Indian cuisine crafted with tradition and taste.</p>
+            </div>
+
+            <!-- Footer Navigation -->
+            <div class="footer-nav">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a asp-page="/Index">Home</a></li>
+                    <li><a asp-page="/About">About Us</a></li>
+                    <li><a asp-page="/Gallery">Gallery</a></li>
+                    <li><a asp-page="/ReserveSpot">Booking</a></li>
+                    <li><a asp-page="/Contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>📍 Bangalore, India</p>
+                <p>📞 +91 98765 43210</p>
+                <p>✉ savora@gmail.com</p>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="footer-bottom">
+            <p>© 2026 Savora. All Rights Reserved.</p>
+        </div>
+
+    </footer>
+<script>
+    function toggleMenu() {
+        document.getElementById("navLinks")
+        .classList.toggle("show");
+    }
+
+
+     function toggleChat() {
+
+            const chat = document.getElementById("chatContainer");
+
+            if (!chat) return;
+
+            if (chat.style.display === "flex") {
+                chat.style.display = "none";
+            } else {
+                chat.style.display = "flex";
+            }
+
+        }
+
+        /* BOT MESSAGE */
+
+        function addBotMessage(message) {
+
+            let chatBody = document.getElementById("chatBody");
+
+            let botDiv = document.createElement("div");
+            botDiv.className = "bot-message";
+            botDiv.innerHTML = message;
+
+            chatBody.appendChild(botDiv);
+
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+        }
+
+        /* USER MESSAGE */
+
+        function addUserMessage(message){
+
+            let chatBody = document.getElementById("chatBody");
+
+            let userDiv = document.createElement("div");
+            userDiv.className = "user-message";
+            userDiv.innerText = message;
+
+            chatBody.appendChild(userDiv);
+
+            chatBody.scrollTo({ top: chatBody.scrollHeight, behavior: 'smooth' });
+        }
+
+        /* SEND MESSAGE */
+
+        function sendMessage(){
+
+            let input = document.getElementById("userInput");
+            let message = input.value.trim().toLowerCase();
+
+            if(message === "") return;
+
+            addUserMessage(message);
+
+            input.value = "";
+
+            /* RULE BASED RESPONSES */
+
+            if(message.includes("menu")){
+                handleOption("menu");
+            }
+
+            else if(message.includes("reservation") || message.includes("book")){
+                handleOption("reservation");
+            }
+            else if(message.includes("time") || message.includes("hours")){
+                handleOption("hours");
+            }
+            else if(message.includes("branch") || message.includes("location")){
+                handleOption("branches");
+            }
+            else{
+                addBotMessage("I'm sorry, I didn't understand. Please choose an option below.");
+                showMainMenu();
+            }
+        }
+
+        /* ENTER KEY SUPPORT */
+
+        function handleEnter(event){
+            if(event.key === "Enter"){
+                sendMessage();
+            }
+        }
+
+        /* MAIN MENU */
+
+        function showMainMenu(){
+
+            addBotMessage(`
+                Is there anything else I can assist you with?
+                <div class="chat-options">
+                    <button onclick="handleOption('menu')">🍽 Menu</button>
+                    <button onclick="handleOption('reservation')">📅 Reservation</button>
+                    <button onclick="handleOption('hours')">🕒 Hours</button>
+                    <button onclick="handleOption('branches')">🌿 Branches</button>
+                </div>
+            `);
+        }
+
+        /* OPTION HANDLER */
+                function handleOption(option){
+
+            const responses = {
+
+                menu: () => {
+                    addBotMessage("🍽 Opening our delicious menu page for you...");
+                    setTimeout(() => window.location.href = "/Menu", 1500);
+                },
+
+                reservation: () => {
+                    addBotMessage("📅 Redirecting you to our reservation page.");
+                    setTimeout(() => window.location.href = "/ReserveSpot", 1500);
+                },
+
+                hours: () => {
+                    addBotMessage("🕒 <b>Opening Hours:</b><br>We are open daily from <b>10 AM – 11 PM</b>.");
+                    setTimeout(showMainMenu,1000);
+                },
+
+                location: () => {
+                    addBotMessage("📍 Savora is located in Bangalore. Would you like to see our branches?");
+                    addBotMessage(`
+                        <div class="chat-options">
+                            <button onclick="handleOption('branches')">View Branches</button>
+                            <button onclick="showMainMenu()">Main Menu</button>
+                        </div>
+                    `);
+                },
+
+                branches: () => {
+                    addBotMessage(`
+                        🌿 We welcome you at our two premium locations:
+                        <div class="chat-options">
+                            <button onclick="handleOption('hennur')">Hennur</button>
+                            <button onclick="handleOption('whitefield')">Whitefield</button>
+                            <button onclick="showMainMenu()">⬅ Back</button>
+                        </div>
+                    `);
+                },
+
+                hennur: () => {
+                    addBotMessage(`
+                        🌿 <b>Savora – Hennur</b><br>
+                        📍 Hennur Main Road, Bangalore<br>
+                        📞 9876543210<br>
+                        🕒 10 AM – 11 PM
+                    `);
+                    setTimeout(showMainMenu,1500);
+                },
+
+                whitefield: () => {
+                    addBotMessage(`
+                        🌿 <b>Savora – Whitefield</b><br>
+                        📍 Whitefield Main Road, Bangalore<br>
+                        📞 9876543210<br>
+                        🕒 10 AM – 11 PM
+                    `);
+                    setTimeout(showMainMenu,1500);
+                }
+
+            };
+
+            if(responses[option]){
+                responses[option]();
+            }
+
+        }
+
+    </script>
+
+
+    <!-- CHAT ICON -->
+    <div class="chat-icon" onclick="toggleChat()">
+
+        <img src="~/Images/chatbot.jpg" alt="Savi Icon">
+
+    </div>
+
+    <!-- CHAT CONTAINER -->
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">🌿 Savi – Savora Assistant
+            <span onclick="toggleChat()">&times;</span>
+        </div>
+
+        <!-- CHAT BODY -->
+        <div class="chat-body" id="chatBody">
+            <div class="bot-message"> Hi 👋 I'm <b>Savi</b>, your assistant at Savora. How may I help you today?
+                <div class="chat-options">
+                    <button onclick="handleOption('menu')">🍽 Menu</button>
+                    <button onclick="handleOption('reservation')">📅 Reservation</button>
+                    <button onclick="handleOption('hours')">🕒 Opening Hours</button>
+                    <button onclick="handleOption('location')">📍 Location</button>
+                    <button onclick="handleOption('branches')">🌿 Branches</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- INPUT AREA -->
+        <div class="chat-input">
+            <input type="text" id="userInput" placeholder="Type your message..." onkeypress="handleEnter(event)">
+             <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,440 @@
+﻿@page
+@model Restuarant.Pages.NonAlcoholicModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "_Layout";
+}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/Menu.css">
+<section class="veg-banner">
+    <img src="/images/nonalcohol.jpg" class="veg-bg-img" alt="Beverage Banner" />
+    <div class="veg-overlay">
+        <h1 style="color: #E6C88C; font-family: 'Playfair Display';">The Liquid Gold</h1>
+        <p style="letter-spacing: 3px; text-transform: uppercase;">Botanical Infusions • Velvet Shakes • Artisan Alchemy</p>
+    </div>
+</section>
+<nav class="menu-nav-sticky">
+    <div class="nav-row">
+        <a href="#soft-drinks">Soft-Drinks</a>
+        <a href="#mojitos">Mojitos</a>
+        <a href="#shakes">Shakes</a>
+        <a href="#juices">Juices</a>
+        <a href="#mocktails">Mocktails</a>
+
+        <div class="filter-divider"></div>
+
+        <button class="filter-btn active" onclick="filterMenu('all')">
+            All
+        </button>
+        <button class="filter-btn" onclick="filterMenu('botanical')">
+            Botanicals
+            <span class="btn-desc">Fresh Herbs & Mint</span>
+        </button>
+        <button class="filter-btn" onclick="filterMenu('zest')">
+            Zest
+            <span class="btn-desc">Citrus & Fizz</span>
+        </button>
+        <button class="filter-btn" onclick="filterMenu('velvet')">
+            Velvet
+            <span class="btn-desc">Creamy & Thick</span>
+        </button>
+    </div>
+</nav>
+
+
+<section id="soft-drinks" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Classic Carbonation</span>
+        <h2 class="category-title">The Essentials</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Classic Cola Crush.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>Classic Cola Crush</h3>
+                <p>Chilled carbonated cola served with a fresh lemon wedge.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹85</span>
+                    <button class="wishlist-btn"
+                            data-name="Classic Cola Crush"
+                            data-price="85"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Citrus Fizz Splash.jpg" alt="Cola">
+                <div class="signature-tag">★ Refreshing</div>
+
+            </div>
+            <div class="card-content">
+                <h3>Citrus Fizz Splash</h3>
+                <p>Sparkling lemon-lime soda with a zesty citrus kick.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹85</span>
+                    <button class="wishlist-btn"
+                            data-name="Citrus Fizz Splash"
+                            data-price="85"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Orange Burst Pop.jpg" alt="Cola">
+
+            </div>
+            <div class="card-content">
+                <h3>Orange Burst Pop</h3>
+                <p>Sweet and tangy orange soda, bubbly and refreshing.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹85</span>
+                    <button class="wishlist-btn"
+                            data-name="Orange Burst Pop"
+                            data-price="85"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Masala Soda Twist.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>Masala Soda Twist</h3>
+                <p>Indian-style fizzy soda with spice, lemon, and salt.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹115</span>
+                    <button class="wishlist-btn"
+                            data-name="Masala Soda Twist"
+                            data-price="115"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section id="mojitos" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Minty & Ultra-Refreshing</span>
+        <h2 class="category-title">Muddled & Icy</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Classic Mint Mojito.jpg" alt="Classic Mint Mojito">
+                <div class="signature-tag">★ Refreshing</div>
+            </div>
+            <div class="card-content">
+                <h3>Classic Mint Mojito</h3>
+                <p>Fresh mint, lime, and soda shaken for pure refreshment.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹175</span>
+                    <button class="wishlist-btn"
+                            data-name="Classic Mint Mojito"
+                            data-price="175"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Blue Lagoon Mojito.jpg" alt="Classic Mint Mojito">
+
+            </div>
+            <div class="card-content">
+                <h3>Blue Lagoon Mojito</h3>
+                <p>Crisp green apple flavor mixed with mint and soda.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹175</span>
+                    <button class="wishlist-btn"
+                            data-name="Blue Lagoon Mojito"
+                            data-price="175"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Watermelon Mint Mojito.jpg" alt="Classic Mint Mojito">
+
+            </div>
+            <div class="card-content">
+                <h3>Watermelon Mint Mojito</h3>
+                <p>Cool blue citrus blend with mint and a tropical feel.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹175</span>
+                    <button class="wishlist-btn"
+                            data-name="Watermelon Mint Mojito"
+                            data-price="175"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="shakes" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Thick & Indulgent</span>
+        <h2 class="category-title">Velvet Shakes</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/Velvet Chocolate Shake.jpg" alt="Oreo Shake">
+                <div class="signature-tag">★ Refreshing</div>
+            </div>
+            <div class="card-content">
+                <h3>Velvet Chocolate Shake</h3>
+                <p>Rich chocolate blended with creamy milk and ice cream.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹195</span>
+                    <button class="wishlist-btn"
+                            data-name="Velvet Chocolate Shake"
+                            data-price="195"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/Strawberry Silk Shake.jpg" alt="Oreo Shake">
+
+            </div>
+            <div class="card-content">
+                <h3>Strawberry Silk Shake</h3>
+                <p>Fresh strawberry flavor with a smooth, milky texture.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹195</span>
+                    <button class="wishlist-btn"
+                            data-name="Strawberry Silk Shake"
+                            data-price="195"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/Oreo Dream Shake.jpg" alt="Oreo Shake">
+                <div class="signature-tag">★ Thick</div>
+            </div>
+            <div class="card-content">
+                <h3>Oreo Dream Shake</h3>
+                <p>Crushed Oreo cookies blended into a thick, creamy shake.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹280</span>
+                    <button class="wishlist-btn"
+                            data-name="Oreo Dream Shake"
+                            data-price="280"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="juices" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Pure & Revitalizing</span>
+        <h2 class="category-title">Cold Pressed</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Sunrise Orange Juice.jpg" alt="Orange Juice">
+            </div>
+            <div class="card-content">
+                <h3>Sunrise Orange Juice</h3>
+                <p>Freshly squeezed oranges, bright and energizing.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹180</span>
+                    <button class="wishlist-btn"
+                            data-name="Sunrise Orange Juice"
+                            data-price="180"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Sweet Lime Refresher.jpg" alt="Orange Juice">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>Sweet Lime Refresher</h3>
+                <p>Cooling mosambi juice with natural sweetness.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹145</span>
+                    <button class="wishlist-btn"
+                            data-name="Sweet Lime Refresher"
+                            data-price="145"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card featured sold-out" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Ruby Pomegranate Press.jpg" alt="Orange Juice">
+            </div>
+            <div class="card-content">
+                <h3>Ruby Pomegranate Press</h3>
+                <p>Fresh pomegranate juice, rich and antioxidant-packed.</p>
+                <div class="card-footer"><span class="price-text">₹170</span></div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Watermelon Chill Juice.jpg" alt="Orange Juice">
+                <div class="signature-tag">★ Refreshing</div>
+            </div>
+            <div class="card-content">
+                <h3>Watermelon Chill Juice</h3>
+                <p>Light, hydrating watermelon juice served chilled.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹130</span>
+                    <button class="wishlist-btn"
+                            data-name="Watermelon Chill Juice"
+                            data-price="130"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="mocktails" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Hand-Crafted Artistry</span>
+        <h2 class="category-title">Artisan Alchemy</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Virgin Passion Punch.jpg" alt="Passion Punch">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>Virgin Passion Punch</h3>
+                <p>Passion fruit blend with citrus and soda fizz.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹320</span>
+                    <button class="wishlist-btn"
+                            data-name="Virgin Passion Punch"
+                            data-price="320"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card featured sold-out" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Berry Blush Cooler.jpg" alt="Passion Punch">
+
+            </div>
+            <div class="card-content">
+                <h3>Berry Blush Cooler</h3>
+                <p>Mixed berry flavors with a refreshing sweet-tart balance.</p>
+                <div class="card-footer"><span class="price-text">₹215</span></div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="botanical">
+            <div class="card-img-box">
+                <img src="/images/Cucumber Mint Sparkler.jpg" alt="Passion Punch">
+                <div class="signature-tag">★ Chilled</div>
+
+            </div>
+            <div class="card-content">
+                <h3>Cucumber Mint Sparkler</h3>
+                <p>Cool cucumber juice with mint and soda bubbles.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹210</span>
+                    <button class="wishlist-btn"
+                            data-name="Cucumber Mint Sparkler"
+                            data-price="210"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Sunset Mango Splash.jpg" alt="Passion Punch">
+
+            </div>
+            <div class="card-content">
+                <h3>Sunset Mango Splash</h3>
+                <p>Ripe mango flavor layered with citrus freshness.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹265</span>
+                    <button class="wishlist-btn"
+                            data-name="Sunset Mango Splash"
+                            data-price="265"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="zest">
+            <div class="card-img-box">
+                <img src="/images/Blue Ocean Cooler.jpg" alt="Passion Punch">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>Blue Ocean Cooler</h3>
+                <p>Tropical blue mocktail with citrus and icy chill.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹315</span>
+                    <button class="wishlist-btn"
+                            data-name="Blue Ocean Cooler"
+                            data-price="315"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

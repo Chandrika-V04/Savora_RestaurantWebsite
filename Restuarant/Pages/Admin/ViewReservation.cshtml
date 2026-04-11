@@ -1,0 +1,106 @@
+﻿@page "{id:int}"
+@model Restuarant.Pages.Admin.ViewReservationModel
+@{
+    ViewData["Title"] = "Reservation Details";
+    Layout = "_AdminLayout";
+}
+
+<div class="page-header">
+    <h2>Reservation Details</h2>
+</div>
+
+<div class="reservation-container">
+
+    <!-- Customer Card -->
+    <div class="reservation-card">
+        <h3 class="card-title">Customer Information</h3>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Name</span>
+                <p>@Model.Reservation.Name</p>
+            </div>
+
+            <div class="info-item">
+                <span>Phone</span>
+                <p>@Model.Reservation.PhoneNumber</p>
+            </div>
+
+            <div class="info-item">
+                <span>Email</span>
+                <p>@Model.Reservation.Email</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reservation Card -->
+    <div class="reservation-card">
+        <h3 class="card-title">Reservation Details</h3>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Date</span>
+                <p>@Model.Reservation.Date.ToString("dd MMM yyyy")</p>
+            </div>
+
+            <div class="info-item">
+                <span>Time</span>
+                <p>@Model.Reservation.Time</p>
+            </div>
+
+            <div class="info-item">
+                <span>Guests</span>
+                <p>@Model.Reservation.NoOfPeople</p>
+            </div>
+
+            <div class="info-item">
+                <span>Location</span>
+                <p>@Model.Reservation.Location</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dining Preferences -->
+    <div class="reservation-card">
+        <h3 class="card-title">Dining Preferences</h3>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Seating Preference</span>
+                <p>@Model.Reservation.SeatingPreference</p>
+            </div>
+
+            <div class="info-item">
+                <span>Food Preference</span>
+                <p>@Model.Reservation.FoodPreference</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Setup -->
+    <div class="reservation-card">
+        <h3 class="card-title">Event Setup</h3>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <span>Event Type</span>
+                <p>@Model.Reservation.EventType</p>
+            </div>
+
+            <div class="info-item">
+                <span>Decor Theme</span>
+                <p>@Model.Reservation.DecorTheme</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status -->
+    <div class="reservation-card status-card">
+        <h3 class="card-title">Reservation Status</h3>
+
+        <div class="status-badge">
+            @Model.Reservation.Status
+        </div>
+    </div>
+
+</div>

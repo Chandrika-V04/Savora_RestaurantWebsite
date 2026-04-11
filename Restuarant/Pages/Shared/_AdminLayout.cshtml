@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Savora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #061b36;
+            --quicksand: #E6C88C;
+            --white: #FFFFFF;
+            --golden: #B68A2E;
+            --white2: #fcfcfa;
+            --online: #2ecc71;
+        }
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: var(--white2);
+            color: var(--blue);
+            display: flex;
+        }
+        .sidebar {
+            width: 260px;
+            height: 100vh;
+            background: var(--blue);
+            position: fixed;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+        }
+            .sidebar h2 {
+                text-align: center;
+                padding: 50px 0 30px 0;
+                margin: 0;
+                color: var(--quicksand);
+                font-weight: 200;
+                letter-spacing: 0.5em;
+                font-size: 1.4rem;
+            }
+        .admin-status-sidebar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding-bottom: 40px;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.5);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background: var(--online);
+            border-radius: 50%;
+            position: relative;
+        }
+            .status-dot::after {
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: var(--online);
+                border-radius: 50%;
+                animation: pulse 2s infinite;
+            }
+        .nav-links {
+            flex-grow: 1;
+        }
+        .sidebar a {
+            display: block;
+            padding: 16px 35px;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+        }
+            .sidebar a:hover {
+                color: var(--quicksand);
+                background: rgba(255, 255, 255, 0.03);
+                border-left: 3px solid var(--golden);
+            }
+        .logout {
+            padding: 25px 35px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--quicksand) !important;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+        }
+        .main {
+            margin-left: 260px;
+            padding: 40px 60px;
+            width: 100%;
+        }
+        .topbar {
+            background: transparent;
+            padding: 0 0 30px 0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(6, 27, 54, 0.05);
+        }
+        .welcome-txt {
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        .online-pill {
+            background: var(--white);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            border: 1px solid rgba(182, 138, 46, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--blue);
+            font-weight: 600;
+        }
+        .content-container {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>SAVORA</h2>
+        <div class="admin-status-sidebar">
+            <div class="status-dot"></div>
+            Admin Online
+        </div>
+        <div class="nav-links">
+            <a href="/Admin/Dashboard">Dashboard</a>
+            <a href="/Admin/Reservations">Reservations</a>
+            <a href="/Admin/Messages">Messages</a>
+            <a href="/Admin/Analytics">Analytics</a>
+
+        </div>
+
+        <a href="/Admin/Login" class="logout">Logout</a>
+    </div>
+
+    <div class="main">
+
+        <div class="topbar">
+            <div class="welcome-txt">Welcome back, Administrator</div>
+            <div class="online-pill">
+                <div class="status-dot"></div>
+                LIVE
+            </div>
+        </div>
+        <div class="content-container">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

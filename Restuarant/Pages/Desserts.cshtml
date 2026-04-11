@@ -1,0 +1,166 @@
+﻿@page
+@model Restuarant.Pages.DessertsModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "_Layout";
+}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/Menu.css">
+
+<section class="veg-banner">
+
+    <img src="/images/dessert.jpg" class="veg-bg-img" />
+
+    <div class="veg-overlay">
+
+        <h1>Divine Delights</h1>
+        <p>Pure • Fresh • Luscious • Sweet</p>
+
+    </div>
+
+</section>
+<div class="dessert-page-wrapper" id="dessertPage">
+    <nav class="dessert-mood-nav">
+        <button class="mood-btn active" onclick="changeMood('all', this)">All </button>
+        <button class="mood-btn" onclick="changeMood('rich', this)"> Chocolate & Rich</button>
+        <button class="mood-btn" onclick="changeMood('light', this)">Light & Floral</button>
+        <button class="mood-btn" onclick="changeMood('fruit', this)"> Fruit & Honey</button>
+    </nav>
+
+    <section id="desserts" class="menu-category-block">
+        <div class="menu-grid">
+
+            <div class="dessert-card" data-mood="rich">
+                <div class="card-img-box">
+                    <img src="/images/Molten Chocolate Eclipse.jpg" alt="Molten Chocolate">
+                    <div class="signature-tag">Hot & Molten</div>
+                </div>
+                <div class="card-content">
+                    <h3>Molten Chocolate Eclipse</h3>
+                    <p>Warm dark chocolate cake with a rich, flowing molten center.</p>
+                    <span class="price-text">₹275</span>
+                    <button class="wishlist-btn"
+                            data-name="Molten Chocolate Eclipse"
+                            data-price="275"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🍷 Pairs with: Vanilla Bean Gelato</div>
+                </div>
+            </div>
+
+            <div class="veg-card featured sold-out" data-mood="rich">
+                <div class="card-img-box"><img src="/images/Golden Caramel Lotus Cheesecake.jpg" alt="Lotus Cheesecake"></div>
+                <div class="card-content">
+                    <h3>Golden Caramel Lotus Cheesecake</h3>
+                    <p>Creamy baked cheesecake topped with glossy caramelized lotus spread.</p>
+                    <span class="price-text">₹295</span>
+                    <div class="pairing-note">☕ Pairs with: Double Espresso</div>
+                </div>
+            </div>
+
+            <div class="dessert-card" data-mood="light">
+                <div class="card-img-box">
+                    <img src="/images/Rose Saffron Milk Cloud.jpg" alt="Rose Saffron">
+                    <div class="signature-tag">Chef's Special</div>
+                </div>
+                <div class="card-content">
+                    <h3>Rose Saffron Milk Cloud</h3>
+                    <p>Soft milk pudding infused with rose and saffron, light as a cloud.</p>
+                    <span class="price-text">₹245</span>
+                    <button class="wishlist-btn"
+                            data-name="Rose Saffron Milk Cloud"
+                            data-price="245"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🍵 Pairs with: Sparkling Water or Rose Tea</div>
+                </div>
+            </div>
+
+            <div class="dessert-card" data-mood="rich">
+                <div class="card-img-box"><img src="/images/Chocolate Hazelnut Dream Slice.jpg" alt="Hazelnut Dream"></div>
+                <div class="card-content">
+                    <h3>Chocolate Hazelnut Dream Slice</h3>
+                    <p>Layers of chocolate sponge, hazelnut cream, and silky ganache.</p>
+                    <span class="price-text">₹265</span>
+                    <button class="wishlist-btn"
+                            data-name="Chocolate Hazelnut Dream Slice"
+                            data-price="265"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🥃 Pairs with: Dark Roasted Coffee</div>
+                </div>
+            </div>
+
+            <div class="dessert-card" data-mood="light">
+                <div class="card-img-box"><img src="/images/Pistachio Velvet Rasmalai.jpg" alt="Pistachio Rasmalai"></div>
+                <div class="card-content">
+                    <h3>Pistachio Velvet Rasmalai</h3>
+                    <p>Soft paneer discs soaked in creamy pistachio-flavored milk.</p>
+                    <span class="price-text">₹225</span>
+                    <button class="wishlist-btn"
+                            data-name="Pistachio Velvet Rasmalai"
+                            data-price="225"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🥜 Pairs with: Crushed Roasted Almonds</div>
+                </div>
+            </div>
+
+            <div class="dessert-card" data-mood="fruit">
+                <div class="card-img-box"><img src="/images/Honey Almond Phyllo Delight.jpg" alt="Phyllo Delight"></div>
+                <div class="card-content">
+                    <h3>Honey Almond Phyllo Delight</h3>
+                    <p>Crispy phyllo layers filled with nuts and soaked in warm honey syrup.</p>
+                    <span class="price-text">₹255</span>
+                    <button class="wishlist-btn"
+                            data-name="Honey Almond Phyllo Delight"
+                            data-price="255"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🍯 Pairs with: Greek Yogurt Dip</div>
+                </div>
+            </div>
+
+            <div class="dessert-card" data-mood="rich">
+                <div class="card-img-box"><img src="/images/Dark Chocolate Truffle Royale.jpg" alt="Truffle Royale"></div>
+                <div class="card-content">
+                    <h3>Dark Chocolate Truffle Royale</h3>
+                    <p>Rich, smooth chocolate truffles that melt instantly in your mouth.</p>
+                    <span class="price-text">₹195</span>
+                    <button class="wishlist-btn"
+                            data-name="Dark Chocolate Truffle Royale<"
+                            data-price="195"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🍓 Pairs with: Fresh Strawberries</div>
+                </div>
+            </div>
+
+            <div class="dessert-card" data-mood="fruit">
+                <div class="card-img-box">
+                    <img src="/images/Mango Bliss Tres Leches.jpg" alt="Mango Tres Leches">
+                    <div class="signature-tag">Seasonal</div>
+                </div>
+                <div class="card-content">
+                    <h3>Mango Bliss Tres Leches</h3>
+                    <p>Soft sponge soaked in mango-infused milk with creamy topping.</p>
+                    <span class="price-text">₹265</span>
+                    <button class="wishlist-btn"
+                            data-name="Mango Bliss Tres Leches"
+                            data-price="265"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                    <div class="pairing-note">🍸 Pairs with: Mint Mojito</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</div>

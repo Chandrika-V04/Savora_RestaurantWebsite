@@ -1,0 +1,384 @@
+﻿:root {
+    --blue: #061b36;
+    --quicksand: #E6C88C;
+    --white: #FFFFFF;
+    --white2: #fcfcfa;
+    --golden: #B68A2E;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+section {
+    width: 100%;
+}
+.section-paragraph {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--blue);
+    max-width: 500px;
+}
+.section-title {
+    font-size: 45px;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 25px;
+    color: var(--blue);
+}
+    .section-title span {
+        color: var(--golden);
+        font-size: 35px;
+        font-weight: 450;
+    }
+.section-image img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover; 
+    border-radius: 14px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.6);
+}
+/* OUR STORY BANNER*/
+.our-story-banner {
+    height: 60vh;
+    min-height: 350px;
+    background: linear-gradient(rgba(6,27,54,0.50), rgba(6,27,54,0.50)), url("/Images/bdaydecor2.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 20px;
+}
+    .our-story-banner h1 {
+        color: var(--white);
+        font-size: clamp(2rem, 5vw, 4rem);
+        letter-spacing: 4px;
+        font-weight: 600;
+        text-shadow: 0 0 12px rgba(230, 200, 140, 0.25);
+        position: relative;
+    }
+        .our-story-banner h1::after {
+            content: "";
+            width: 90px;
+            height: 2px;
+            background: var(--quicksand);
+            display: block;
+            margin: 20px auto 0;
+        }
+/* WHO WE ARE*/
+.who-we-are {
+    background: var(--white2);
+    padding: clamp(60px, 8vw, 120px) 20px;
+}
+.who-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.who-tagline {
+    font-style: italic;
+    font-size: 22px;
+    color: var(--golden);
+    margin-bottom: 25px;
+    display: inline-block;
+}
+.who-image img {
+    width: 100%;
+    max-width: 400px;
+    height: 450px; /* control height */
+    object-fit: cover; /* prevents distortion */
+    border-radius: 50px;
+    transition: transform 0.4s ease;
+}
+.who-image img {
+    width: 100%;
+    transition: transform 0.5s ease;
+}
+.who-image:hover img {
+    transform: scale(1.04);
+}
+/* QUOTE BANNER */
+.quote-banner {
+    min-height: 300px;
+    padding: 60px 20px;
+    background: linear-gradient(rgba(6,27,54,0.20), rgba(6,27,54,0.20)), url("/Images/banner1.jpg") center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.quote-text {
+    font-size: clamp(18px, 2.5vw, 28px);
+    color: var(--quicksand);
+    letter-spacing: 2px;
+    max-width: 900px;
+    margin: auto;
+}
+
+
+.features {
+    background: var(--blue);
+    padding: 80px 0;
+    color: var(--white);
+}
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.feature-card {
+    flex: 1 1 250px;
+    text-align: center;
+}.icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+.feature-card h3 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--quicksand);
+    margin-bottom: 10px;
+}
+.feature-card p {
+    font-size: 14px;
+    color: var(--white);
+    opacity: 0.8;
+    line-height: 1.6;
+}
+.feature-card {
+    transition: transform 0.3s ease;
+}
+    .feature-card:hover {
+        transform: translateY(-6px);
+    }
+
+.cuisine-section {
+    padding: 100px 10%;
+    background: var(--white2);
+}
+.cuisine-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 140px;
+    max-width: 1300px;
+    margin: auto;
+}
+.cuisine-image,
+.cuisine-text {
+    flex: 1;
+}
+    .cuisine-image img,
+    .farm-image img {
+        width: 100%;
+        max-width: 500px;
+        height: 420px;
+        object-fit: cover;
+        border-radius: 14px;
+        box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+        transition: transform 0.6s ease;
+        display: block;
+        margin: auto;
+    }
+        .cuisine-image img:hover,
+        .farm-image img:hover {
+            transform: scale(1.03);
+        }
+.cuisine-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    height: 420px;
+    color: var(--blue);
+    text-align: left;
+}
+
+    .cuisine-text p {
+        line-height: 1.8;
+        max-width: 500px;
+    }
+
+
+.farm-subtitle {
+    display: inline-block;
+    font-size: 18px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--golden);
+    margin-bottom: 20px;
+}
+.farm-split {
+    background: var(--white2);
+    padding: 100px 8%;
+}
+.farm-split-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.farm-text {
+    color: var(--white);
+}
+.farm-icons {
+    display: flex;
+    gap: 30px;
+}
+    .farm-icons .icon {
+        text-align: center;
+    }
+
+    .farm-icons span {
+        font-size: 2rem;
+        display: block;
+    }
+    .farm-icons p {
+        color: var(--quicksand);
+        font-size: 0.9rem;
+        margin-top: 6px;
+        letter-spacing: 1px;
+    }
+
+/* EXPERIENCE SECTION*/
+.experience-section {
+    background: var(--white2);
+    padding: clamp(70px, 8vw, 120px) 20px;
+}
+.experience-container {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+.experience-highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+.highlight {
+    padding: 8px 16px;
+    border-radius: 25px;
+    border: 1px solid rgba(6,27,54,0.3);
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+    .highlight:hover {
+        background: var(--quicksand);
+    }
+
+/*FEATURES SECTION*/
+.features-section {
+    padding: 100px 20px;
+    background: var(--white2);
+    text-align: center;
+}
+.features-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+.feature-box {
+    padding: 30px;
+    border-radius: 14px;
+    background: var(--white);
+    border: 1px solid var(--quicksand);
+    transition: all 0.3s ease;
+}
+    .feature-box h3 {
+        color: var(--golden);
+        font-size: 18px;
+        margin-bottom: 12px;
+    }
+    .feature-box p {
+        color: var(--blue);
+        font-size: 14px;
+        line-height: 1.6;
+    }
+    .feature-box:hover {
+        transform: translateY(-6px);
+        border-color: var(--quicksand);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    }
+
+
+
+
+
+
+/*  GLOBAL RESPONSIVE*/
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 32px;
+    }
+        .section-title span {
+            font-size: 24px;
+        }
+    .section-paragraph {
+        font-size: 16px;
+    }
+    .section-image img,.who-image img,.cuisine-image img,.farm-image img {
+        height: 320px;
+    }
+    .farm-icons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .features-container {
+        grid-template-columns: 1fr;
+    }
+    .experience-highlights {
+        justify-content: center;
+    }
+}
+@media (max-width: 600px) {
+    .our-story-banner {
+        height: 45vh;
+    }
+        .our-story-banner h1 {
+            letter-spacing: 2px;
+        }
+    .quote-banner {
+        padding: 40px 15px;
+    }
+    .section-title {
+        font-size: 26px;
+    }
+    .section-paragraph {
+        font-size: 15px;
+    }
+    .section-image img,.who-image img,.cuisine-image img,.farm-image img {
+        height: 250px;
+        border-radius: 20px;
+    }
+    .highlight {
+        font-size: 12px;
+        padding: 6px 12px;
+    }
+}
+@media (max-width: 480px) {
+    .section-title {
+        font-size: 22px;
+    }
+        .section-title span {
+            font-size: 18px;
+        }
+    .farm-icons span {
+        font-size: 1.5rem;
+    }
+    .farm-icons p {
+        font-size: 0.8rem;
+    }
+}

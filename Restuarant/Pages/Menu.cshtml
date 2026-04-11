@@ -1,0 +1,105 @@
+﻿@page
+@model Restuarant.Pages.MenucshtmlModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu Banner</title>
+    <link rel="stylesheet" href="~/css/Menu.css">
+</head>
+<body>
+    <section class="menu-banner">
+        <div class="banner-overlay">
+            <h1 class="banner-title">Our Menu</h1>
+            <p class="banner-subtitle">
+                Crafted with passion • Served with love
+            </p>
+            <div class="menu-buttons">
+                <a href="#cuisines" class="menu-btn outline">Cuisines</a>
+                <a href="#beverages" class="menu-btn outline">Beverages</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="cuisines" class="cuisines-wrapper">
+        <div class="cuisine-row">
+            <div class="cuisine-image">
+                <img src="/images/veg_logo.jpg" alt=" Vegetarian Food">
+            </div>
+            <div class="cuisine-text">
+                <h3>Vegetarian</h3>
+                <p>
+                    A celebration of fresh vegetables, aromatic spices, and authentic
+                    vegetarian recipes crafted with care and tradition.</p>
+                <a asp-page="/Veg" class="menu-btn outline">View Menu</a>
+            </div>
+        </div>
+
+        <!-- NON-VEG -->
+        <div class="cuisine-row reverse">
+            <div class="cuisine-image">
+                <img src="/images/nonveg_logo.jpg" alt=" Vegetarian Food">
+            </div>
+            <div class="cuisine-text">
+                <h3>Non-Vegetarian</h3>
+                <p>
+                    Bold flavors, juicy meats, and slow-cooked delicacies designed to
+                    satisfy every non-veg lover’s craving.
+                </p>
+                <a asp-page="/NonVeg" class="menu-btn outline">View Menu</a>
+            </div>
+        </div>
+
+
+        <!-- DESSERTS -->
+        <div class="cuisine-row">
+            <div class="cuisine-image">
+                <img src="/images/Dessert_logo.jpg" alt=" Vegetarian Food">
+            </div>
+            <div class="cuisine-text">
+                <h3>Desserts</h3>
+                <p>
+                    Sweet endings crafted with elegance — rich cakes, traditional sweets,
+                    and irresistible desserts.
+                </p>
+                <a asp-page="/Desserts" class="menu-btn outline">View Menu</a>
+            </div>
+        </div>
+
+    </section>
+    <section id="beverages" class="cuisines-wrapper">
+        <!-- NON-ALCOHOLIC -->
+        <div class="cuisine-row">
+            <div class="cuisine-image">
+                <img src="/images/Non alcoholic_logo.jpg" alt=" Vegetarian Food">
+            </div>
+            <div class="cuisine-text">
+                <h3>Non-Alcoholic</h3>
+                <p>
+                    Refreshing mocktails, fresh juices, smoothies, and classic
+                    beverages crafted to energize and delight.
+                </p>
+                <a asp-page="/NonAlcoholic" class="menu-btn outline">View Menu</a>
+            </div>
+        </div>
+
+        <!-- ALCOHOLIC -->
+        <div class="cuisine-row reverse">
+            <div class="cuisine-image">
+                <img src="/images/Alcohol_logo.jpg" alt=" Vegetarian Food">
+            </div>
+            <div class="cuisine-text">
+                <h3>Alcoholic</h3>
+                <p>
+                    Premium wines, handcrafted cocktails, and signature spirits
+                    curated for a refined dining experience.
+                </p>
+                <a asp-page="/Alcohol" class="menu-btn outline">View Menu</a>
+            </div>
+        </div>
+        </section>
+
+     </body>
+</html>

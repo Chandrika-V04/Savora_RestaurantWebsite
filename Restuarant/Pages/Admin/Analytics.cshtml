@@ -1,0 +1,127 @@
+﻿@page
+@model Restuarant.Pages.Admin.AnalyticsModel
+@{
+    Layout = "_AdminLayout";
+    ViewData["Title"] = "Analytics";
+}
+<link rel="stylesheet" href="~/css/Admin.css" />
+<div class="dashboard-container">
+    <!-- STATS -->
+    <div class="stats-grid">
+        <div class="stat-card">
+            <div class="stat-title">Total Reservations</div>
+            <h2 class="stat-value">@Model.TotalReservations</h2></div>
+        <div class="stat-card">
+            <div class="stat-title">Today's Bookings</div>
+            <h2 class="stat-value">@Model.TodayReservations</h2></div>
+        <div class="stat-card">
+            <div class="stat-title">Pending</div>
+            <h2 class="stat-value" style="color: var(--golden);">@Model.PendingReservations</h2></div>
+        <div class="stat-card">
+            <div class="stat-title">Approved</div>
+            <h2 class="stat-value">@Model.ApprovedReservations</h2></div>
+        <div class="stat-card">
+            <div class="stat-title">Completed</div>
+            <h2 class="stat-value" style="color: #4CAF50;">@Model.CompletedReservations</h2></div>
+        <div class="stat-card">
+            <div class="stat-title">Cancelled</div>
+            <h2 class="stat-value" style="opacity: 0.5;">@Model.CancelledReservations</h2></div>
+    </div>
+    <!-- Chart -->
+    <h2 style="margin-top:40px;">Monthly Reservations by Location</h2>
+    <div style="background:#fff; padding:20px; border-radius:15px;">
+        <canvas id="branchChart"></canvas>
+    </div>
+    <!-- FOOD + EVENT + STATUS -->
+    <div style="display:flex; gap:30px; margin-top:30px; justify-content:center; flex-wrap:wrap;">
+        <div style="background:#fff; padding:15px; border-radius:15px; width:250px; height:280px;">
+            <h4 style="text-align:center;">Food Preference</h4>
+            <canvas id="foodChart"></canvas>
+        </div>
+        <div style="background:#fff; padding:15px; border-radius:15px; width:250px; height:280px;">
+            <h4 style="text-align:center;">Event Type</h4>
+            <canvas id="eventChart"></canvas>
+        </div>
+        <div style="background:#fff; padding:15px; border-radius:15px; width:250px; height:280px;">
+            <h4 style="text-align:center;">Reservation Status</h4>
+            <canvas id="statusChart"></canvas>
+        </div>
+    </div>
+    <div style="margin-top:30px;">
+        <div style="background:#fff; padding:30px; border-radius:15px;height:400px;">
+            <h3>Seating Preference</h3>
+            <canvas id="seatingChart"></canvas>
+        </div> </div>
+</div>
+
+<!-- 🔥 Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // SAFE DATA
+    const months = @Html.Raw(Json.Serialize(Model.Months ?? new List<string>()));
+    const whitefieldData = @Html.Raw(Json.Serialize(Model.WhitefieldData ?? new List<int>()));
+    const hennurData = @Html.Raw(Json.Serialize(Model.HennurData ?? new List<int>()));
+    const foodLabels = @Html.Raw(Json.Serialize(Model.FoodLabels ?? new List<string>()));
+    const foodCounts = @Html.Raw(Json.Serialize(Model.FoodCounts ?? new List<int>()));
+    const seatingLabels = @Html.Raw(Json.Serialize(Model.SeatingLabels ?? new List<string>()));
+    const seatingCounts = @Html.Raw(Json.Serialize(Model.SeatingCounts ?? new List<int>()));
+    const eventLabels = @Html.Raw(Json.Serialize(Model.EventLabels ?? new List<string>()));
+    const eventCounts = @Html.Raw(Json.Serialize(Model.EventCounts ?? new List<int>()));
+    const statusLabels = ['Pending', 'Approved', 'Completed', 'Cancelled'];
+    const statusCounts = [@Model.PendingReservations,@Model.ApprovedReservations,
+        @Model.CompletedReservations,@Model.CancelledReservations ];
+
+    // 📊 MONTHLY
+    if (document.getElementById("branchChart")) {
+        new Chart(document.getElementById("branchChart"), {type: 'bar',
+            data: {labels: months,datasets: [
+                    {label: 'Whitefield',data: whitefieldData,backgroundColor: '#061b36'},
+                    {label: 'Hennur', data: hennurData,backgroundColor: '#B68A2E' }]
+            },
+            options: {responsive: true}
+        });
+    }
+    //  FOOD
+    if (document.getElementById("foodChart")) {
+        new Chart(document.getElementById("foodChart"), {
+            type: 'pie',data: {labels: foodLabels,
+                datasets: [{data: foodCounts,backgroundColor: ['#4CAF50', '#FF5722']}]
+            },
+            options: {responsive: true,maintainAspectRatio: false,plugins: {legend: { position: 'bottom' }}
+            }
+        });
+    }
+    // EVENT
+    if (document.getElementById("eventChart")) {
+        new Chart(document.getElementById("eventChart"), {
+            type: 'pie',data: {labels: eventLabels,
+                datasets: [{data: eventCounts,backgroundColor: ['#FF9800', '#E91E63', '#4CAF50', '#2196F3']}]
+            },
+            options: {responsive: true,maintainAspectRatio: false,
+                plugins: {legend: { position: 'bottom' }}
+            }
+        });
+    }
+    // STATUS
+    if (document.getElementById("statusChart")) {
+        new Chart(document.getElementById("statusChart"), {
+            type: 'pie',
+            data: {labels: statusLabels,
+                datasets: [{data: statusCounts,
+                    backgroundColor: ['#FFC107','#2196F3','#4CAF50','#9E9E9E']}]
+            },
+            options: {responsive: true, maintainAspectRatio: false,plugins: {legend: { position: 'bottom' }}
+            }
+        });
+    }
+    // SEATING
+    if (document.getElementById("seatingChart")) {
+        new Chart(document.getElementById("seatingChart"), {
+            type: 'bar',
+            data: {labels: seatingLabels,datasets: [{data: seatingCounts,backgroundColor: '#3F51B5'}]
+            },
+            options: {responsive: true,scales: {y: { beginAtZero: true } }
+            }
+        });
+    }
+</script>

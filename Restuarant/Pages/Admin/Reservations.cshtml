@@ -1,0 +1,234 @@
+﻿@page
+@model Restuarant.Pages.Admin.ReservationsModel
+@{
+    Layout = "_AdminLayout";
+}
+
+<style>
+    .page-header {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+        .page-header h2 {
+            font-weight: 200;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            margin: 0;
+            color: var(--blue);
+        }
+
+    .table-responsive {
+        background: var(--white);
+        border: 1px solid rgba(182,138,46,0.1);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+
+    .savora-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+        .savora-table thead {
+            background: var(--blue);
+            color: var(--quicksand);
+        }
+
+        .savora-table th {
+            padding: 18px 25px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
+
+        .savora-table td {
+            padding: 20px 25px;
+            font-size: 0.9rem;
+            border-bottom: 1px solid var(--white2);
+            color: var(--blue);
+        }
+
+        .savora-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .savora-table tr:hover {
+            background-color: rgba(230,200,140,0.03);
+        }
+
+    /* STATUS BADGES */
+    .badge {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .badge-pending {
+        background: #FFC107;
+    }
+
+    .badge-approved {
+        background: #4CAF50;
+    }
+
+    .badge-completed {
+        background: #2196F3;
+    }
+
+    .badge-cancelled {
+        background: #f44336;
+    }
+    
+
+    .status-dropdown {
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+        font-size: 13px;
+        cursor: pointer;
+        background: white;
+    }
+
+    .action-group {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+
+    .btn-action {
+        background: transparent;
+        border: 1px solid var(--blue);
+        color: var(--blue);
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+        text-decoration: none;
+    }
+
+    .btn-edit {
+        border-color: var(--golden);
+        color: var(--golden);
+    }
+
+        .btn-edit:hover {
+            background: var(--golden);
+            color: white;
+        }
+
+    .guest-count {
+        font-weight: 600;
+        color: var(--golden);
+    }
+</style>
+
+<div class="page-header">
+    <h2>Reservations</h2>
+</div>
+
+<div class="table-responsive">
+    <table class="savora-table">
+
+        <thead>
+            <tr>
+                <th>Guest</th>
+                <th>Contact</th>
+                <th>Schedule</th>
+                <th>Party</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model.ListReservations)
+            {
+                <tr>
+
+                    <td>
+                        <div style="font-weight:600">@item.Name</div>
+                        <div style="font-size:12px;opacity:0.6">@item.Email</div>
+                    </td>
+
+                    <td>@item.PhoneNumber</td>
+
+                    <td>
+                        <div>@item.Date.ToString("dd MMM yyyy")</div>
+                        <div style="font-size:12px;color:var(--golden)">
+                            @item.Time.ToString(@"hh\:mm")
+                        </div>
+                    </td>
+
+                    <td>
+                        <span class="guest-count">@item.NoOfPeople</span> Guests
+                    </td>
+
+                    <td>
+
+                        @{
+                            var status = item.Status?.ToLower();
+
+                            var statusClass = status switch
+                            {
+                                "approved" => "badge-approved",
+                                "pending" => "badge-pending",
+                                "completed" => "badge-completed",
+                                "cancelled" => "badge-cancelled",
+                                _ => "badge-pending"
+                            };
+                        }
+
+                        <span class="badge @statusClass">@item.Status</span>
+
+                    </td>
+
+                    <td>
+                        <div class="action-group">
+
+                            <form method="post" asp-page-handler="UpdateStatus">
+
+                                <input type="hidden" name="id" value="@item.Id" />
+
+                                <select name="status"
+                                        class="status-dropdown"
+                                        onchange="this.form.submit()">
+
+                                    <option value="Pending" selected="@(item.Status == "Pending" ? "selected" : null)">Pending</option>
+                                    <option value="Approved" selected="@(item.Status == "Approved" ? "selected" : null)">Approved</option>
+                                    <option value="Completed" selected="@(item.Status == "Completed" ? "selected" : null)">Completed</option>
+                                    <option value="Cancelled" selected="@(item.Status == "Cancelled" ? "selected" : null)">Cancelled</option>
+
+                                </select>
+
+                            </form>
+
+                            <a asp-page="/Admin/EditReservation"
+                               asp-route-id="@item.Id"
+                               class="btn-action btn-edit">
+                                Edit
+                            </a>
+
+                            <a asp-page="/Admin/ViewReservation"
+                               asp-route-id="@item.Id"
+                               class="btn-action">
+                                View
+                            </a>
+
+                        </div>
+                    </td>
+
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>

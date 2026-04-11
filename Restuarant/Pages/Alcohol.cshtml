@@ -1,0 +1,731 @@
+﻿@page
+@model Restuarant.Pages.AlcoholModel
+@{
+    ViewData["Title"] = "Menu";
+    Layout = "_Layout";
+}
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="~/css/Menu.css">
+<section class="veg-banner">
+    <img src="/images/alcohol.jpg" class="veg-bg-img" alt="Beverage Banner" />
+    <div class="veg-overlay">
+        <h1 style="color: #E6C88C; font-family: 'Playfair Display';">The Liquid Gold</h1>
+        <p style="letter-spacing: 3px; text-transform: uppercase;">Botanical Infusions • Velvet Shakes • Artisan Alchemy</p>
+    </div>
+</section>
+<nav class="menu-nav-sticky" style="background-color: #061b36;">
+    <div class="nav-row">
+        <a href="#cocktails">Cocktails </a>
+        <a href="#wine">Wine</a>
+        <a href="#whisky">Whisky</a>
+        <a href="#beer">Beer </a>
+        <a href="#vodka">Vodka </a>
+        <a href="#rum">Rum  </a>
+        <div class="filter-divider"></div>
+        <button class="filter-btn active" onclick="filterMenu('all')">All</button>
+        <button class="filter-btn" onclick="filterMenu('smokey')">Smokey <span class="btn-desc">Oaked & Bold</span></button>
+        <button class="filter-btn" onclick="filterMenu('crisp')">Crisp <span class="btn-desc">Fresh & Zesty</span></button>
+        <button class="filter-btn" onclick="filterMenu('velvet')">Velvet <span class="btn-desc">Creamy & Silk</span></button>
+    </div>
+</nav>
+<section id="cocktails" class="menu-category-block" style="background-color: #061b36;">
+    <div class="category-header">
+        <span class="gold-subtitle">Sensory Alchemy</span>
+        <h2 class="category-title">Artisan Spirit Cocktails</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Gilded Age.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>The Gilded Age</h3>
+                <p>Smoked bourbon old-fashioned with maple and gold-dusted orange.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹725</span>
+                    <button class="wishlist-btn"
+                            data-name="The Gilded Age"
+                            data-price="725"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/Midnight in Provence.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>Midnight in Provence</h3>
+                <p>Lavender-infused gin, dry vermouth, and a twist of lemon oil.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹675</span>
+                    <button class="wishlist-btn"
+                            data-name="Midnight in Provence"
+                            data-price="675"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The Velvet Noir.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Velvet Noir</h3>
+                <p>Espresso martini with a touch of dark cacao and sea salt.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹675</span>
+                    <button class="wishlist-btn"
+                            data-name="The Velvet Noir"
+                            data-price="675"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/Saffron Silk Road.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>Saffron Silk Roade</h3>
+                <p>Spiced rum, saffron syrup, and fresh citrus, served in a crystal coupe</p>
+                <div class="card-footer">
+                    <span class="price-text">₹695</span>
+                    <button class="wishlist-btn"
+                            data-name="Saffron Silk Roade"
+                            data-price="695"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Botanical Empress.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>The Botanical Empress</h3>
+                <p>Elderflower, artisanal vodka, and cucumber ribbons.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹650</span>
+                    <button class="wishlist-btn"
+                            data-name="The Botanical Empress"
+                            data-price="650"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/Ember & Ash.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>Ember & Ash</h3>
+                <p>Mezcal, agave, and charred pineapple with a chili-salt rim.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹725</span>
+                    <button class="wishlist-btn"
+                            data-name="Ember & Ash"
+                            data-price="725"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Royal Orchard.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>The Royal Orchard</h3>
+                <p>Crisp apple brandy, sparkling wine, and a hint of cinnamon.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹695</span>
+                    <button class="wishlist-btn"
+                            data-name="The Royal Orchard"
+                            data-price="695"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/Azure Horizon.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>Azure Horizon</h3>
+                <p> Blue curaçao, white rum, and coconut cream, clarified for a clear finish.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹650</span>
+                    <button class="wishlist-btn"
+                            data-name="Azure Horizon"
+                            data-price="650"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="wine" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Estate & Heritage</span>
+        <h2 class="category-title">Global Wine Treasures</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Estate Blanc.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>​The Estate Blanc</h3>
+                <p> A crisp, mineral-forward Sauvignon Blanc.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹545</span>
+                    <button class="wishlist-btn"
+                            data-name="The Estate Blanc"
+                            data-price="545"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Rosé Blush.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>The Rosé Blush</h3>
+                <p>A pale, dry Grenache Rosé from the coastal hills </p>
+                <div class="card-footer">
+                    <span class="price-text">₹595</span>
+                    <button class="wishlist-btn"
+                            data-name="The Rosé Blush"
+                            data-price="595"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/Chardonnay de Lumière.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>Chardonnay de Lumière</h3>
+                <p>A buttery, oak-aged Chardonnay with notes of vanilla.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹525</span>
+                    <button class="wishlist-btn"
+                            data-name="Chardonnay de Lumière"
+                            data-price="525"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/Ruby Heritage.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>​​Ruby Heritage</h3>
+                <p>A medium-bodied Merlot with notes of dark plum.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹575</span>
+                    <button class="wishlist-btn"
+                            data-name="​​Ruby Heritage"
+                            data-price="575"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card featured sold-out" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Grand Reserve.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>​The Grand Reserve</h3>
+                <p> A bold, full-bodied Cabernet Sauvignon, aged in French oak.</p>
+
+                <div class="card-footer"><span class="price-text">₹645</span> </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/Velvet Noir Syrah.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>Velvet Noir Syrah</h3>
+                <p> A spicy, peppery red with a deep purple hue</p>
+                <div class="card-footer">
+                    <span class="price-text">₹625</span>
+                    <button class="wishlist-btn"
+                            data-name="Velvet Noir Syrah"
+                            data-price="625"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Sparkling Crown.jpg" alt="Cola">
+                <div class="signature-tag">★ Refreshing</div>
+            </div>
+            <div class="card-content">
+                <h3>​The Sparkling Crown</h3>
+                <p> A vintage Brut Champagne with fine bubbles.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹795</span>
+                    <button class="wishlist-btn"
+                            data-name="The Sparkling Crown"
+                            data-price="795"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The Golden Nectar.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>​The Golden Nectar</h3>
+                <p> A sweet, late-harvest dessert wine.</p>
+
+                <div class="card-footer">
+                    <span class="price-text">₹495</span>
+                    <button class="wishlist-btn"
+                            data-name="The Golden Nectar"
+                            data-price="495"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Artisan’s Blend.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>​​The Artisan’s Blend</h3>
+                <p> A unique, small-batch red blend from the Chef’s private pick</p>
+                <div class="card-footer">
+                    <span class="price-text">₹625</span>
+                    <button class="wishlist-btn"
+                            data-name="The Artisan’s Blend"
+                            data-price="625"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="whisky" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Sensory Alchemy</span>
+        <h2 class="category-title">Artisan Cask Whiskies</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/Highland Mist.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>Highland Mist</h3>
+                <p>A 15-year single malt with notes of honey and heather.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹695</span>
+                    <button class="wishlist-btn"
+                            data-name="Highland Mist"
+                            data-price="695"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Peated Oak.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Peated Oak</h3>
+                <p>A smoky, intense Islay scotch for the traditionalist</p>
+                <div class="card-footer">
+                    <span class="price-text">₹745</span>
+                    <button class="wishlist-btn"
+                            data-name="The Peated Oak"
+                            data-price="745"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Amber Rye.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Amber Rye</h3>
+                <p>A spicy, bold American rye with a caramel finish</p>
+                <div class="card-footer">
+                    <span class="price-text">₹525</span>
+                    <button class="wishlist-btn"
+                            data-name="The Amber Rye"
+                            data-price="525"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/Imperial Corn.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>Imperial Corn</h3>
+                <p>A small-batch, premium Kentucky Bourbon.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹495</span>
+                    <button class="wishlist-btn"
+                            data-name="Imperial Corn"
+                            data-price="495"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The Rising Sun.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>​The Rising Sun</h3>
+                <p>delicate, floral Japanese whisky with a silk-smooth finish</p>
+                <div class="card-footer">
+                    <span class="price-text">₹795</span>
+                    <button class="wishlist-btn"
+                            data-name="The Rising Sun"
+                            data-price="795"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Cask Strength.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Cask Strength</h3>
+                <p>An unfiltered, high-proof whisky for the bold palate.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹645</span>
+                    <button class="wishlist-btn"
+                            data-name="The Cask Strength"
+                            data-price="645"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The Master’s Blend.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Master’s Blend</h3>
+                <p>A premium blended scotch, aged to perfection.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹575</span>
+                    <button class="wishlist-btn"
+                            data-name="The Master’s Blend"
+                            data-price="575"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="beer" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Sensory Alchemy</span>
+        <h2 class="category-title">Prime Selection Beers</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Golden Ale.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>The Golden Ale</h3>
+                <p>A light, crisp craft lager with a citrus finish.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹345</span>
+                    <button class="wishlist-btn"
+                            data-name="he Golden Ale"
+                            data-price="345"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card featured sold-out" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Copper Stout.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Copper Stout</h3>
+                <p>A rich, dark beer with notes of coffee and roasted malt.</p>
+                <div class="card-footer"><span class="price-text">₹395</span> </div>
+            </div>
+        </div>
+        <div class="veg-card featured sold-out" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Hop Harvest.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Hop Harvest</h3>
+                <p>An aromatic, floral India Pale Ale (IPA)</p>
+
+                <div class="card-footer"><span class="price-text">₹375</span></div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The European Export.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The European Export</h3>
+                <p>A premium, imported pilsner served in a chilled flute.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹325</span>
+                    <button class="wishlist-btn"
+                            data-name="The European Export"
+                            data-price="325"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="vodka" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Sensory Alchemy</span>
+        <h2 class="category-title">Midnight Clarity Vodkas</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Arctic Rye.jpg" alt="Cola">
+                <div class="signature-tag">★ Chilled</div>
+            </div>
+            <div class="card-content">
+                <h3>​The Arctic Rye</h3>
+                <p> A clean, crisp vodka distilled from winter rye.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹395</span>
+                    <button class="wishlist-btn"
+                            data-name="​The Arctic Rye"
+                            data-price="395"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The Crystal Potato.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Crystal Potato</h3>
+                <p>A creamy, full-bodied Polish vodka.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹425</span>
+                    <button class="wishlist-btn"
+                            data-name="The Crystal Potato"
+                            data-price="425"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The French Diamond.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>The French Diamond</h3>
+                <p>A wheat-based, ultra-smooth sipping vodka.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹475</span>
+                    <button class="wishlist-btn"
+                            data-name="The French Diamond"
+                            data-price="475"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="rum" class="menu-category-block">
+    <div class="category-header">
+        <span class="gold-subtitle">Sensory Alchemy</span>
+        <h2 class="category-title">Golden Galleon Rums</h2>
+        <div class="title-divider"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="veg-card" data-category="smokey">
+            <div class="card-img-box">
+                <img src="/images/The Aged Mariner.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>​The Aged Mariner</h3>
+                <p> A 12-year dark rum with notes of molasses and spice</p>
+
+                <div class="card-footer">
+                    <span class="price-text">₹445</span>
+                    <button class="wishlist-btn"
+                            data-name="​The Aged Mariner"
+                            data-price="445"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="crisp">
+            <div class="card-img-box">
+                <img src="/images/The Silver Shore.jpg" alt="Cola">
+            </div>
+            <div class="card-content">
+                <h3>The Silver Shore</h3>
+                <p>A clean, light white rum perfect for botanical infusions.</p>
+                <div class="card-footer">
+                    <span class="price-text">₹345</span>
+                    <button class="wishlist-btn"
+                            data-name="The Silver Shore"
+                            data-price="345"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="veg-card" data-category="velvet">
+            <div class="card-img-box">
+                <img src="/images/The Spiced Alchemist.jpg" alt="Cola">
+                <div class="signature-tag">★ Chef's Signature</div>
+            </div>
+            <div class="card-content">
+                <h3>The Spiced Alchemist</h3>
+                <p>A house-infused rum with vanilla, clove, and orange peel.</p>
+
+                <div class="card-footer">
+                    <span class="price-text">₹395</span>
+                    <button class="wishlist-btn"
+                            data-name="The Spiced Alchemist"
+                            data-price="395"
+                            onclick="toggleVisitList(this)">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+
+<div id="wishlist-popup" class="wishlist-popup">
+    Added to your visit wishlist!
+</div>
+
+<script>
+    function filterMenu(category) {
+        const cards = document.querySelectorAll('.veg-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.currentTarget.classList.add('active');
+
+        cards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+
+    function toggleWishlist(btn, name) {
+        btn.classList.toggle('active');
+        const icon = btn.querySelector('i');
+        const popup = document.getElementById('wishlist-popup');
+
+        if (btn.classList.contains('active')) {
+            icon.className = 'fas fa-heart';
+            btn.innerHTML = '<i class="fas fa-heart"></i> Saved';
+            popup.classList.add('show');
+            setTimeout(() => popup.classList.remove('show'), 3000);
+        } else {
+            icon.className = 'far fa-heart';
+            btn.innerHTML = '<i class="far fa-heart"></i> Add to Visit';
+        }
+    }
+</script>

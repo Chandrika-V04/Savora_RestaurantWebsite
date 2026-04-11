@@ -1,0 +1,96 @@
+﻿/* DASHborad*/
+.dashboard-container {
+    animation: fadeIn 0.8s ease-out;
+}
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+.stat-card {
+    background: var(--white);
+    padding: 25px 20px;
+    border: 1px solid rgba(182, 138, 46, 0.15);
+    border-radius: 4px;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+    .stat-card:hover {
+        border-color: var(--golden);
+        transform: translateY(-5px);
+    }
+.stat-title {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--golden);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+.stat-value {
+    font-size: 2rem;
+    font-weight: 200;
+    color: var(--blue);
+    margin: 0;
+}
+
+.dashboard-lower {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+.info-panel {
+    background: var(--white);
+    border: 1px solid rgba(6, 27, 54, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+}
+.panel-header {
+    background: var(--blue);
+    color: var(--quicksand);
+    padding: 15px 25px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-weight: 500;
+}
+
+.panel-body {
+    padding: 25px;
+}
+
+.action-btn {
+    display: inline-block;
+    padding: 12px 24px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--blue);
+    background: var(--blue);
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transition: 0.3s;
+}
+
+    .action-btn.secondary {
+        background: transparent;
+        color: var(--blue);}
+    .action-btn:hover {
+        background: var(--golden);
+        border-color: var(--golden);
+        color: var(--white);}
+.sys-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--white2);
+    font-size: 0.9rem;
+}
+    .sys-info-row span:first-child {
+        color: var(--golden);
+        font-weight: 500;
+    }

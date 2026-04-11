@@ -1,0 +1,90 @@
+﻿@page
+@model Restuarant.Pages.ReserveSpotModel
+@{
+    ViewData["Title"] = "Booking";
+    Layout = "_Layout";
+}
+<section class="reservation-wrapper">
+    <h2 class="form-title">Reserve Your Spot</h2>
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {<div class="alert-box @(Model.IsSuccess ? "success" : "error")">
+            @Model.Message
+        </div>
+    }
+
+    <form method="post" class="reservation-form">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="Name" placeholder="Enter your full name" required />
+        </div>
+        <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" name="PhoneNumber" placeholder="10-digit mobile number" pattern="[6-9]{1}[0-9]{9}" maxlength="10" required />
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" name="Email" placeholder="Enter your email" required />
+        </div>
+        <div class="form-group">
+            <label>Date</label>
+            <input type="date" name="Date" required />
+        </div>
+        <div class="form-group">
+            <label>Time</label>
+            <input type="time" name="Time" required />
+        </div>
+        <div class="form-group">
+            <label>Number of People</label>
+            <input type="number" name="NoOfPeople" min="1" max="20" required />
+        </div>
+        <div class="form-group">
+            <label>Location</label>
+            <select name="Location" required>
+                <option value="">Select Branch</option>
+                <option value="Whitefield">Whitefield</option>
+                <option value="Hennur">Hennur</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Seating Preference</label>
+            <select name="SeatingPreference" required>
+                <option value="">Select Seating Preference</option>
+                <option value="Indoor">Indoor Seating</option>
+                <option value="Outdoor">Outdoor Seating</option>
+                <option value="Terrace">Terrace / Rooftop</option>
+                <option value="Family">Family Area</option>
+                <option value="Couple">Couple Seating</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Event Type</label>
+            <select name="EventType">
+                <option value="">None</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Anniversary">Anniversary</option>
+                <option value="Corporate">Corporate Event</option>
+                <option value="PrivateParty">Private Party</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Decor Theme</label>
+            <select name="DecorTheme">
+                <option value="">No Decor</option>
+                <option value="Balloon">Balloon Theme</option>
+                <option value="Floral">Floral Theme</option>
+                <option value="Romantic">Romantic Theme</option>
+                <option value="Custom">Custom Theme</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Food Preference</label>
+            <select name="FoodPreference" required>
+                <option value="">Select Preference</option>
+                <option value="Veg">Veg</option>
+                <option value="NonVeg">Non-Veg</option>
+            </select>
+        </div>
+        <button type="submit" class="btn-submit">Reserve Now</button>
+    </form>
+</section>

@@ -1,0 +1,111 @@
+﻿/* FULL PAGE CENTERING */
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f6f6f4; /* soft neutral background */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* CENTER WRAPPER */
+.success-section {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+/* SUCCESS CARD */
+.success-card {
+    background: #ffffff;
+    max-width: 620px;
+    width: 100%;
+    padding: 55px 45px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15), 0 0 40px rgba(219, 190, 33, 0.6);
+    position: relative;
+}
+
+    /* HEADING */
+    .success-card h1 {
+        font-size: 38px;
+        color: #112250;
+        margin-bottom: 18px;
+        font-weight: 600;
+    }
+
+/* CONFIRMATION TEXT */
+.confirmation {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 14px;
+    color: #222;
+}
+
+/* MESSAGE TEXT */
+.message {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 38px;
+}
+
+/* BUTTONS */
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-bottom: 28px;
+}
+
+/* COMMON BUTTON */
+.btn {
+    padding: 12px 32px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+    /* PRIMARY */
+    .btn.primary {
+        background: #112250;
+        color: #ffffff;
+        box-shadow: 0 10px 25px rgba(17, 34, 80, 0.25);
+    }
+
+        .btn.primary:hover {
+            transform: translateY(-2px);
+            background: #0c1a3d;
+        }
+    /* SECONDARY */
+    .btn.secondary {
+        border: 1.5px solid #112250;
+        color: #112250;
+        background: transparent;
+    }
+        .btn.secondary:hover {
+            background: #112250;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+/* INFO TEXT */
+.info-text {
+    font-size: 13px;
+    color: #777;
+}
+/* RESPONSIVE */
+@media (max-width: 600px) {
+    .success-card {
+        padding: 45px 25px;
+    }
+        .success-card h1 {
+            font-size: 30px;
+        }
+}

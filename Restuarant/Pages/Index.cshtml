@@ -1,0 +1,250 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+<link rel="stylesheet" href="~/css/index.css" />
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Restaurant Home</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <section class="hero">
+        <div class="hero-overlay">
+            <div class="hero-content">
+                <span>Welcome to Our Restaurant</span>
+                <h1>SAVOURA</h1>
+                <p>Experience royal flavours, elegant ambience, and unforgettable dining moments.</p>
+                <a href="/Menu" class=" btn-outline-gold">Explore Menu</a>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="about-header">
+            <span class="about-subtitle">Special moments</span>
+            <h2>ABOUT US</h2>
+        </div>
+
+        <div class="about-grid">
+            <!-- LEFT IMAGE -->
+            <div class="about-image left-img"></div>
+
+            <!-- CENTER CONTENT -->
+            <div class="about-content">
+                <span class="content-subtitle">Taste perception</span>
+                <h3>TRADITIONAL<br>& MODERN</h3>
+                <p>
+                    At Savora, we celebrate the art of flavor. Our restaurant is a place
+                    where traditional recipes meet modern culinary creativity. Every dish
+                    is thoughtfully prepared using fresh ingredients, refined techniques,
+                    and a passion for delivering unforgettable taste.
+                </p>
+                <a href="/About" class="btn-outline-gold">READ MORE</a>
+            </div>
+
+            <!-- RIGHT IMAGE -->
+            <div class="about-image right-img"></div>
+        </div>
+    </section>
+<!-- BRANCH SECTION -->
+<section class="branches-section">
+
+    <div class="branches-header">
+        <h2>Our Branches</h2>
+        <p>Visit us at your nearest location and enjoy unforgettable flavours</p>
+    </div>
+
+    <div class="branches-container">
+        <!-- WHITEFIELD -->
+        <div class="branch-card">
+            <img src="~/Images/resto2.jpg" alt="Whitefield Branch">
+            <div class="branch-content">
+                <h3>Whitefield</h3>
+                <p>Whitefield Main Road, Bengaluru</p>
+                <div class="branch-actions">
+                    <a href="/Menu" class="btn">Menu</a>
+                    <a href="/ReserveSpot" class="btn">Reservation</a>
+                    <a href="/Gallery" class="btn">Gallery</a>
+                    <a href="#testimonials" class="btn">Reviews</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- HENNUR -->
+        <div class="branch-card">
+            <img src="~/Images/resto1.jpg" alt="Hennur Branch">
+            <div class="branch-content">
+                <h3>Hennur</h3>
+                <p>Hennur Main Road, Bengaluru</p>
+                <div class="branch-actions">
+                    <a href="/Menu" class="btn">Menu</a>
+                    <a href="/ReserveSpot" class="btn">Reservation</a>
+                    <a href="/Gallery" class="btn">Gallery</a>
+                    <a href="#testimonials" class="btn">Reviews</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    <section class="signature-section">
+        <h2 class="signature-title">
+            The Chef’s <span>Signature Collection</span></h2>
+        <div class="signature-grid">
+            <div class="signature-card" onclick="toggleCard(this)">
+                <img src="~/images/Crispy Lotus Stem Chips (Kamal Kakdi).jpg" alt="Crispy Lotus Stem Chips (Kamal Kakdi)">
+                <div class="card-body">
+                    <h3>Crispy Lotus Stem Chips (Kamal Kakdi)</h3>
+                    <div class="card-content">
+                        <p>Thin-sliced lotus stem fried crisp and lightly seasoned for a crunchy bite.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="signature-card" onclick="toggleCard(this)">
+                <img src="~/images/Cheese-Stuffed Zucchini Rolls.jpg" alt="Cheese-Stuffed Zucchini Rolls">
+                <div class="card-body">
+                    <h3>Cheese-Stuffed Zucchini Rolls</h3>
+              
+                    <div class="card-content">
+                        <p>Tender zucchini rolls stuffed with creamy cheese and herbs, lightly grilled.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="signature-card" onclick="toggleCard(this)">
+                <img src="~/images/Spinach & Corn Cheese Medallions.jpg" alt="Spinach & Corn Cheese Medallions">
+                <div class="card-body">
+                    <h3>Spinach & Corn Cheese Medallions</h3>
+                    <div class="card-content">
+                        <p>Crunchy outer layer with a soft, cheesy spinach and corn filling inside.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="signature-card" onclick="toggleCard(this)">
+                <img src="~/images/Stuffed Bell Pepper in Cashew Gravy.jpg" alt="Dal Makhani">
+                <div class="card-body">
+                    <h3>Stuffed Bell Pepper in Cashew Gravy</h3>
+                    <div class="card-content">
+                        <p>Bell peppers filled with spiced vegetables, simmered in creamy cashew sauce.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="signature-card" onclick="toggleCard(this)">
+                <img src="~/images/Charcoal Grilled Veg Kofta Curry.jpg" alt="Malai Kofta">
+                <div class="card-body">
+                    <h3>Charcoal Grilled Veg Kofta Curry</h3>
+                    <div class="card-content">
+                        <p>Smoky grilled vegetable koftas served in a rich, flavorful gravy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        function toggleCard(card) {
+            const content = card.querySelector(".card-content");
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+            }
+        }
+    </script>
+
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <p class="subtitle">Testimonials</p>
+            <h2 class="section-title">What Clients Say About <span>Savora</span></h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="">
+                        <span class="badge">❝</span>
+                    </div>
+                    <p class="description">
+                        We celebrated our family dinner here and the experience was wonderful.
+                        The biryani and kebabs were full of authentic flavors and the hospitality
+                        made us feel right at home.
+                    </p>
+                    <h4 class="name">Priya Sharma</h4>
+                    <span class="role">Food Blogger</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="">
+                        <span class="badge">❝</span>
+                    </div>
+                    <p class="description">
+                        One of the best dining experiences I've had in the city.
+                        The chef’s special paneer dish was absolutely delicious
+                        and the presentation was impressive.
+                    </p>
+                    <h4 class="name">Arjun Mehta</h4>
+                    <span class="role">Chef & Culinary Expert</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="">
+                        <span class="badge">❝</span>
+                    </div>
+                    <p class="description">
+                        Beautiful ambiance and very courteous staff.
+                        Perfect place for a relaxed dinner with friends.
+                        The desserts were simply amazing.
+                    </p>
+                    <h4 class="name">Sneha Reddy</h4>
+                    <span class="role">Restaurant Reviewer</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="">
+                        <span class="badge">❝</span>
+                    </div>
+                    <p class="description">
+                        The flavors reminded me of traditional Indian recipes
+                        with a modern twist. Everything from starters to main
+                        course was perfectly cooked.
+                    </p>
+                    <h4 class="name">Rahul Verma</h4>
+                    <span class="role">Food Enthusiast</span>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="testimonial-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/women/22.jpg" alt="">
+                        <span class="badge">❝</span>
+                    </div>
+                    <p class="description">
+                        Absolutely loved the ambiance and the variety in the menu.
+                        The butter naan and dal makhani were incredibly flavorful.
+                        Highly recommended for family gatherings.
+                    </p>
+                    <h4 class="name">Ananya Iyer</h4>
+                    <span class="role">Lifestyle Blogger</span>
+                </div>
+                <div class="testimonial-card">
+                    <div class="profile">
+                        <img src="https://randomuser.me/api/portraits/men/18.jpg" alt="">
+                        <span class="badge">❝</span>
+                    </div>
+                    <p class="description">
+                        Great service and amazing food quality.
+                        The staff were very attentive and the dishes
+                        were beautifully presented.
+                    </p>
+                    <h4 class="name">Vikram Patel</h4>
+                    <span class="role">Food Critic</span>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
