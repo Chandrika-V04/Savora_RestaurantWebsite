@@ -36,11 +36,29 @@ The **Savora Restaurant Management Website** is a comprehensive full-stack web a
 
 ---
 
-## 📂 Database Design (Schema)
-The backend is supported by a relational database in SQL Server. Key tables include:
-* **Users:** Stores credentials and contact info for administrators.
-* **Reservations:** Tracks `BookingID`, `CustomerName`, `PartySize`, `DateTime`, and `SpecialRequests`.
-* **Menu:** Contains item names, descriptions, pricing, and categories.
+## 📂 Database Design & Data Persistence
+
+The backend utilizes **SQL Server** with **ADO.NET** to manage user interactions and ensure robust data integrity. The database is structured into two primary functional areas:
+
+---
+
+### 1. Reservation System Table 📅
+This table handles the complex logistics of restaurant booking, ensuring all specific customer preferences are captured for the staff.
+
+* **Customer Identity:** `BookingID` (PK), `CustomerName`, `PhoneNumber`, `Email`.
+* **Event Details:** `Date`, `Time`, `NoOfPeople`, `EventType` (e.g., Birthday, Anniversary, Corporate).
+* **Atmosphere Preferences:** `Location` (Indoor/Outdoor), `SeatingPreference`, `DecorTheme`.
+* **Dietary Requirements:** `FoodPreference` (Veg / Non-Veg).
+
+---
+
+### 2. Contact & Inquiry Table ✉️
+This table stores messages sent through the website’s contact form, allowing administrators to review and follow up with customer queries.
+
+
+* **Sender Details:** `Name`, `Email`
+* **Content:** `Subject`, `Message`
+* **Metadata:** `SubmittedAt` (Timestamp)
 
 ---
 
