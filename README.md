@@ -13,12 +13,11 @@ The **Savora Restaurant Management Website** is a comprehensive full-stack web a
 
 | Layer | Technology |
 | :--- | :--- |
-| **Frontend** | HTML5, CSS3 (Custom Responsive Design), JavaScript |
+| **Frontend** | HTML, CSS, JavaScript |
 | **Backend Framework** | ASP.NET Core 8.0 (Razor Pages) |
 | **Programming Language** | C# |
 | **Data Access Layer** | ADO.NET (`SqlConnection`, `SqlCommand`, `SqlDataReader`) |
 | **Database** | Microsoft SQL Server |
-| **Design Tools** | Inkscape (Logo & Vector Graphics) |
 | **Version Control** | Git & GitHub |
 
 ---
