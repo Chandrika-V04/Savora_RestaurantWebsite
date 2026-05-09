@@ -11,6 +11,7 @@
 <body>
     <header class="site-header">
         <nav class="navbar">
+
             <!-- Logo -->
             <div class="logo">
                 <a asp-page="/Index">Savora</a>
@@ -20,18 +21,34 @@
             <ul class="nav-links" id="navLinks">
                 <li><a asp-page="/Index">Home</a></li>
                 <li><a asp-page="/About">About Us</a></li>
-                <li><a asp-page="/Menu">Menu</a></li>
+                <li><a asp-page="/Menumain">Menu</a></li>
                 <li><a asp-page="/Gallery">Gallery</a></li>
                 <li><a asp-page="/ReserveSpot">Booking</a></li>
                 <li><a asp-page="/Contact">Contact</a></li>
+
+                <!-- Mobile Admin Button -->
+                <li class="mobile-admin">
+                    <a asp-page="/Admin/Login" class="btn-outline-gold">Admin Login</a>
+                </li>
             </ul>
 
-            <!-- Hamburger Icon -->
-            <div class="hamburger" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
+            <!-- Right Side -->
+            <div class="nav-right">
+
+                <!-- Admin Login Button -->
+                <a asp-page="/Admin/Login" class="admin-btn desktop-admin">
+                    Admin Login
+                </a>
+
+                <!-- Hamburger -->
+                <div class="hamburger" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
             </div>
+
         </nav>
     </header>
 
@@ -46,8 +63,8 @@
 
             <!-- Footer Logo / Brand -->
             <div class="footer-brand">
-                <h3>Home of Flavours</h3>
-                <p>Authentic Indian cuisine crafted with tradition and taste.</p>
+                <h3>Savora</h3>
+                <p>Rooted in tradition. Refined for today.</p>
             </div>
 
             <!-- Footer Navigation -->
@@ -193,7 +210,7 @@
 
                 menu: () => {
                     addBotMessage("🍽 Opening our delicious menu page for you...");
-                    setTimeout(() => window.location.href = "/Menu", 1500);
+                    setTimeout(() => window.location.href = "/Menumain", 1500);
                 },
 
                 reservation: () => {
@@ -264,7 +281,6 @@
         <img src="~/Images/chatbot.jpg" alt="Savi Icon">
 
     </div>
-
     <!-- CHAT CONTAINER -->
     <div class="chat-container" id="chatContainer">
         <div class="chat-header">🌿 Savi – Savora Assistant

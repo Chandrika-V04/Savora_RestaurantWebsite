@@ -1,407 +1,117 @@
 ﻿@page
-@model Restuarant.Pages.NonVegModel
+@model Restuarant.Pages.NonvegModel
 @{
-    ViewData["Title"] = "Menu";
-    Layout = "_Layout";
 }
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="~/css/Menu.css">
+<link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
 
-<section class="veg-banner">
-    <img src="/images/nonveg.jpg" class="veg-bg-img" />
-    <div class="veg-overlay">
-        <h1 style="color: #E6C88C;">The Gilded Grill</h1>
-        <p>Premium Cuts • Exotic Spices • Royal Flavors</p>
+<section class="menu-banner">
+    <div class="banner-overlay">
+        <h1>NON-VEGETARIAN MENU</h1>
+        <div class="gold-line"></div>
+        <p>Bold Flavours. Royal Indulgence.</p>
     </div>
 </section>
 
-<nav class="menu-nav-sticky">
-    <a href="#appetizers">Appetizers</a>
-    <a href="#main">Mains</a>
-    <a href="#soups">Soups</a>
-    
-    <div class="filter-divider"></div>
-    <button class="filter-btn active" onclick="filterMenu('all')">All</button>
-    <button class="filter-btn" onclick="filterMenu('chicken')">Chicken</button>
-    <button class="filter-btn" onclick="filterMenu('fish')">Fish</button>
-    <button class="filter-btn" onclick="filterMenu('mutton')">Mutton</button>
-    <button class="filter-btn" onclick="filterMenu('prawns')">Prawns</button>
-    
-</nav>
-
-<section id="appetizers" class="menu-category-block">
-    <div class="category-header">
-        <span class="gold-subtitle">From the Tandoor & Grill</span>
-        <h2 class="category-title">Exquisite Appetizers</h2>
-        <div class="title-divider"></div>
+<!-- CATEGORY BUTTONS -->
+<section class="menu-categories">
+    <div class="category-container">
+        <a href="#starters" class="category-btn">STARTERS</a>
+        <a href="#maincourse" class="category-btn">MAIN COURSE</a>
+        <a href="#soups" class="category-btn">SOUPS</a>
     </div>
+</section>
 
+<!-- ================= STARTERS ================= -->
+<section id="starters" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Light & Flavorful</span>
+        <h2>NON-VEG STARTERS</h2>
+        <div class="gold-line-center"></div>
+    </div>
     <div class="menu-grid">
-        <div class="veg-card" data-category="chicken">
-            <div class="card-img-box">
-                <img src="/images/Smoky Dragon Chicken.jpg" alt="Smoky Dragon Chicken">
-                <div class="signature-tag">🔥 Spicy</div>
-            </div>
-            <div class="card-content">
-                <h3>Smoky Dragon Chicken</h3>
-                <p>Crispy fried chicken tossed in a smoky Indo-Chinese dragon sauce.</p>
-                <span class="price-text">₹325</span>
-                <button class="wishlist-btn"
-                        data-name="Smoky Dragon Chicken"
-                        data-price="325"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non1.jpg" alt="Chicken Tikka">
+            <h3>Classic Chicken Tikka</h3>
+            <p>Juicy chicken marinated in spices and grilled to smoky perfection.</p>
         </div>
-        <div class="veg-card" data-category="chicken">
-            <div class="card-img-box">
-                <img src="/images/Charcoal Smoked Pepper Chicken Cubes.jpg" alt="Smoky Dragon Chicken">
-                
-            </div>
-            <div class="card-content">
-                <h3>Charcoal Smoked Pepper Chicken Cubes</h3>
-                <p>Juicy chicken cubes smoked over charcoal and coated with cracked black pepper seasoning.</p>
-                <span class="price-text">₹345</span>
-                <button class="wishlist-btn"
-                        data-name="Charcoal Smoked Pepper Chicken Cubes"
-                        data-price="345"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non2.jpg" alt="Seekh Kebab">
+            <h3>Seekh Kebab Royale</h3>
+            <p>Minced meat skewers infused with herbs and grilled over open flame.</p>
         </div>
-        <div class="veg-card" data-category="chicken">
-            <div class="card-img-box">
-                <img src="/images/Korean Gochujang Fried Chicken Pops.jpg" alt="Smoky Dragon Chicken">
-                    <div class="signature-tag">★ Chef's Signature</div>
-            </div>
-            <div class="card-content">
-                <h3>Korean Gochujang Fried Chicken Pops</h3>
-                <p>Crispy chicken bites glazed with sweet-spicy Korean gochujang sauce and sesame.</p>
-                <span class="price-text">₹315</span>
-                <button class="wishlist-btn"
-                        data-name="Korean Gochujang Fried Chicken Pops"
-                        data-price="315"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non3.jpg" alt="Fish Fry">
+            <h3>Coastal Fish Fry</h3>
+            <p>Fresh fish marinated in coastal spices and crisp fried.</p>
         </div>
-        <div class="veg-card" data-category="fish">
-            <div class="card-img-box">
-                <img src="/images/Banana Leaf Wrapped Fish Fry.jpg" alt="Smoky Dragon Chicken">
-                
-            </div>
-            <div class="card-content">
-                <h3>Banana Leaf Wrapped Fish Fry</h3>
-                <p>Fresh fish marinated in coastal spices, wrapped in banana leaf and pan-grilled.</p>
-                <span class="price-text">₹385</span>
-                <button class="wishlist-btn"
-                        data-name="Banana Leaf Wrapped Fish Fry"
-                        data-price="385"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        <div class="veg-card" data-category="fish">
-            <div class="card-img-box">
-                <img src="/images/Mustard Crusted Tandoori Fish.jpg" alt="Smoky Dragon Chicken">
-                
-            </div>
-            <div class="card-content">
-                <h3>Mustard Crusted Tandoori Fish</h3>
-                <p>Tandoor-grilled fish coated with mustard paste and aromatic Indian spices.</p>
-                <span class="price-text">₹395</span>
-                <button class="wishlist-btn"
-                        data-name="Mustard Crusted Tandoori Fish"
-                        data-price="395"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="veg-card featured sold-out" data-category="mutton">
-            <div class="card-img-box">
-                <img src="/images/Mutton Sukka (Dry Roast).jpg" alt="Mutton Sukka">
-                <div class="signature-tag">★ Slow Roasted</div>
-            </div>
-            <div class="card-content">
-                <h3>Mutton Sukka (Dry Roast)</h3>
-                <p>Slow-roasted mutton cooked dry with coconut and South Indian spices.</p>
-                <span class="price-text">₹425</span>
-            </div>
-        </div>
-        
-      
-
-        <div class="veg-card" data-category="prawns">
-            <div class="card-img-box">
-                <img src="/images/Butter Garlic Tiger Prawns.jpg" alt="Tiger Prawns">
-            </div>
-            <div class="card-content">
-                <h3>Butter Garlic Tiger Prawns</h3>
-                <p>Large tiger prawns sautéed in premium butter and aromatic garlic.</p>
-                <span class="price-text">₹445</span>
-                <button class="wishlist-btn"
-                        data-name="utter Garlic Tiger Prawns"
-                        data-price="445"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        <div class="veg-card" data-category="prawns">
-            <div class="card-img-box">
-                <img src="/images/Ghee Roast Prawns Supreme.jpg" alt="Tiger Prawns">
-                <div class="signature-tag">🔥 Spicy</div>
-            </div>
-            <div class="card-content">
-                <h3>Ghee Roast Prawns Supreme</h3>
-                <p>Juicy prawns roasted in rich ghee with fiery coastal spices.</p>
-                <span class="price-text">₹465</span>
-                <button class="wishlist-btn"
-                        data-name="Ghee Roast Prawns Supreme"
-                        data-price="465"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non4.jpg" alt="Tandoori Platter">
+            <h3>Tandoori Supreme Platter</h3>
+            <p>Chef’s curated selection of charcoal-roasted meats with signature marinades.</p>
         </div>
     </div>
 </section>
 
-
-<section id="main" class="menu-category-block">
-    <div class="category-header">
-        <span class="gold-subtitle">Grand Selections</span>
-        <h2 class="category-title">Signature Mains</h2>
-        <div class="title-divider"></div>
+<!-- ================= MAIN COURSE ================= -->
+<section id="maincourse" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Rich & Hearty</span>
+        <h2>MAIN COURSE</h2>
+        <div class="gold-line-center"></div>
     </div>
-
     <div class="menu-grid">
-        <div class="veg-card featured" data-category="chicken">
-            <div class="card-img-box">
-                <img src="/images/Butter Pepper Chicken.jpg" alt="Kashmiri Rogan Josh">
-            </div>
-            <div class="card-content">
-                <h3>Butter Pepper Chicken</h3>
-                <p>Creamy butter-based chicken gravy with black pepper, no tomato tang.</p>
-                <span class="price-text">₹395</span>
-                <button class="wishlist-btn"
-                        data-name="Butter Pepper Chicken"
-                        data-price="395"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/chicken.jpg" alt="Butter Chicken">
+            <h3>Royal Ember Butter Chicken</h3>
+            <p>Fire-roasted chicken simmered in velvety makhani sauce with a delicate smoky finish.</p>
         </div>
-        <div class="veg-card featured sold-out" data-category="chicken">
-            <div class="card-img-box">
-                <img src="/images/Charcoal Chicken masala.jpg" alt="Kashmiri Rogan Josh">
-            </div>
-            <div class="card-content">
-                <h3>Charcoal Chicken Masala</h3>
-                <p>Smoky grilled chicken simmered in thick spiced masala gravy.</p>
-                <span class="price-text">₹385</span>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/lamb.jpg" alt="Lamb Rogan Josh">
+            <h3>Mughal Reserve Lamb Rogan</h3>
+            <p>Tender lamb slow-cooked in aromatic Kashmiri spices for a deep, royal flavor.</p>
         </div>
-
-        <div class="veg-card featured" data-category="fish">
-            <div class="card-img-box">
-                <img src="/images/Kerala Fish Moilee.jpg" alt="Chettinad Fish Curry">
-                    <div class="signature-tag">★ Chef's Signature</div>
-            </div>
-            <div class="card-content">
-                <h3>Kerala Fish Moilee</h3>
-                <p>Delicate fish curry cooked in coconut milk with gentle spices.</p>
-                <span class="price-text">₹445</span>
-                <button class="wishlist-btn"
-                        data-name="Kerala Fish Moilee"
-                        data-price="445"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/prawns.jpg" alt="Prawn Masala">
+            <h3>Coastal Flame Prawn Masala</h3>
+            <p>Succulent prawns tossed in bold coastal spices with a rich, flavorful glaze.</p>
         </div>
-        <div class="veg-card featured" data-category="fish">
-            <div class="card-img-box">
-                <img src="/images/Chettinad Fish Curry.jpg" alt="Chettinad Fish Curry">
-                <div class="signature-tag">Noir Edition</div>
-            </div>
-            <div class="card-content">
-                <h3>Chettinad Fish Curry</h3>
-                <p>Spicy South Indian fish curry with roasted coconut and spices.</p>
-                <span class="price-text">₹425</span>
-                <button class="wishlist-btn"
-                        data-name="Chettinad Fish Curry"
-                        data-price="425"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        <div class="veg-card featured" data-category="fish">
-            <div class="card-img-box">
-                <img src="/images/Thai Green Curry Fish .jpg" alt="Chettinad Fish Curry">
-                
-            </div>
-            <div class="card-content">
-                <h3>Thai Green Curry Fish</h3>
-                <p>Fish simmered in coconut milk with Thai green curry paste.</p>
-                <span class="price-text">₹435</span>
-                <button class="wishlist-btn"
-                        data-name="Thai Green Curry Fish"
-                        data-price="435"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="veg-card featured" data-category="prawns">
-            <div class="card-img-box">
-                <img src="/images/Malai Prawn Curry.jpg" alt="Kashmiri Rogan Josh">
-                    <div class="signature-tag">★ Chef's Signature</div>
-            </div>
-            <div class="card-content">
-                <h3>Malai Prawn Curry</h3>
-                <p>Creamy cashew-based prawn curry with mild spices.</p>
-                <span class="price-text">₹475</span>
-                <button class="wishlist-btn"
-                        data-name="Malai Prawn Curry"
-                        data-price="475"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        <div class="veg-card featured" data-category="prawns">
-            <div class="card-img-box">
-                <img src="/images/Chettinad Prawn Masala.jpg" alt="Kashmiri Rogan Josh">
-            </div>
-            <div class="card-content">
-                <h3>Chettinad Prawn Masala</h3>
-                <p>Spicy prawn curry loaded with Chettinad roasted spices.</p>
-                <span class="price-text">₹465</span>
-                <button class="wishlist-btn"
-                        data-name="Chettinad Prawn Masala"
-                        data-price="465"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-
-
-        <div class="veg-card featured" data-category="mutton">
-            <div class="card-img-box">
-                <img src="/images/Hyderabadi Dum Mutton.jpg" alt="Kashmiri Rogan Josh">
-                <div class="signature-tag">🔥 Spicy</div>
-            </div>
-            <div class="card-content">
-                <h3>Hyderabadi Dum Mutton</h3>
-                <p>Slow-cooked mutton sealed with spices for deep flavor.</p>
-                <span class="price-text">₹495</span>
-                <button class="wishlist-btn"
-                        data-name="yderabadi Dum Mutton"
-                        data-price="495"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
-        </div>
-        <div class="veg-card featured sold-out" data-category="mutton">
-            <div class="card-img-box">
-                <img src="/images/Mutton Pepper Masala.jpg" alt="Kashmiri Rogan Josh">
-            </div>
-            <div class="card-content">
-                <h3>Mutton Pepper Masala</h3>
-                <p>Spicy black-pepper-based mutton gravy.</p>
-                <span class="price-text">₹485</span>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/platter.jpg" alt="Tandoori Platter">
+            <h3>Tandoori Supreme Platter</h3>
+            <p>Chef’s curated selection of charcoal-roasted meats with signature marinades.</p>
         </div>
     </div>
 </section>
 
-<section id="soups" class="menu-category-block">
-    <div class="category-header">
-        <span class="gold-subtitle">Warmth & Essence</span>
-        <h2 class="category-title">Artisan Non-Veg Soups</h2>
-        <div class="title-divider"></div>
+<!-- ================= SOUPS ================= -->
+<section id="soups" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Warm & Comforting</span>
+        <h2>SOUPS</h2>
+        <div class="gold-line-center"></div>
     </div>
-
     <div class="menu-grid">
-        <div class="veg-card" data-category="chicken">
-            <div class="card-img-box">
-                <img src="/images/SMOKED CHICKEN.jpg" alt="Smoked Chicken Broth">
-                <div class="signature-tag">★ Clear Broth</div>
-            </div>
-            <div class="card-content">
-                <h3>Smoked Chicken & Garlic Broth </h3>
-                <p>Clear chicken soup with garlic and smoky notes.</p>
-                <span class="price-text">₹195</span>
-                <button class="wishlist-btn"
-                        data-name="Smoked Chicken & Garlic Broth"
-                        data-price="195"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non5.jpg" alt="Chicken Soup">
+            <h3>Classic Chicken Clear Soup</h3>
+            <p>Light and nourishing soup with tender chicken and herbs.</p>
         </div>
-
-        <div class="veg-card" data-category="fish">
-            <div class="card-img-box">
-                <img src="/images/COASTAL FISH.jpg" alt="Peppery Fish Rasam">
-            </div>
-            <div class="card-content">
-                <h3>Coastal Fish</h3>
-                <p>Light fish broth with coastal spices</p>
-                <span class="price-text">₹215</span>
-                <button class="wishlist-btn"
-                        data-name="Coastal Fish"
-                        data-price="215"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non6.jpg" alt="Mutton Soup">
+            <h3>Spiced Mutton Soup</h3>
+            <p>Rich broth infused with spices and slow-cooked mutton.</p>
         </div>
-
-        <div class="veg-card" data-category="prawns">
-            <div class="card-img-box">
-                <img src="/images/TOM YUM PRAWN.jpg" alt="Creamy Prawn Bisque">
-                
-            </div>
-            <div class="card-content">
-                <h3>Tom Yum Prawn</h3>
-                <p>Spicy Thai soup with prawns</p>
-                <span class="price-text">₹225</span>
-                <button class="wishlist-btn"
-                        data-name="Tom Yum Prawn"
-                        data-price="225"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non8.jpg" alt="Hot and Sour Soup">
+            <h3>Coastal Prawn Soup</h3>
+            <p>A light yet flavorful soup with prawns, coconut milk, and coastal spices.</p>
         </div>
-        <div class="veg-card" data-category="mutton">
-            <div class="card-img-box">
-                <img src="/images/MUTTON  BROTH.jpg" alt="Creamy Prawn Bisque">
-                <div class="signature-tag">Noir Edition</div>
-            </div>
-            <div class="card-content">
-                <h3>Mutton  Broth</h3>
-                <p>Deep, nourishing broth</p>
-                <span class="price-text">₹225</span>
-                <button class="wishlist-btn"
-                        data-name="Mutton  Broth"
-                        data-price="265"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/non7.jpg" alt="Hot and Sour Soup">
+            <h3>Mutton Bone Broth Elixir</h3>
+            <p>Slow-simmered mutton bones creating a deeply nourishing, flavorful, and aromatic broth.</p>
         </div>
     </div>
 </section>
+<a asp-page="/Menumain" class="floating-back-btn">Back to Menu</a>
+

@@ -1,166 +1,132 @@
 ﻿@page
 @model Restuarant.Pages.DessertsModel
 @{
-    ViewData["Title"] = "Menu";
-    Layout = "_Layout";
 }
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="~/css/Menu.css">
+<link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
 
-<section class="veg-banner">
+<section class="menu-banner">
+    <div class="banner-overlay">
+        <h1>DESSERTS & DRINKS</h1>
+        <div class="gold-line"></div>
+        <p>Sweet Indulgence & Crafted Beverages</p>
+    </div>
+</section>
+<section class="menu-categories">
+    <div class="category-container">
+        <a href="#desserts" class="category-btn">DESSERTS</a>
+        <a href="#alcoholic" class="category-btn">ALCOHOLIC</a>
+        <a href="#nonalcoholic" class="category-btn">NON-ALCOHOLIC</a>
+    </div>
+</section>
 
-    <img src="/images/dessert.jpg" class="veg-bg-img" />
+<section id="desserts" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Sweet Indulgence</span>
+        <h2>DESSERT CREATIONS</h2>
+        <div class="gold-line-center"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="~/Images/Menu/d1.jpg" alt="Rasmalai">
+            <h3>Saffron Pistachio Cheesecake</h3>
+            <p>Creamy cheesecake infused with saffron, finished with pistachio crumble.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/d2.jpg" alt="Gulab Jamun">
+            <h3>Rosé Cream Delight</h3>
+            <p>Silky rose-infused panna cotta topped with pistachio crumble and delicate rose petals.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/d3.jpg" alt="Kulfi">
+            <h3>Cardamom Pistachio Macarons</h3>
+            <p>Delicate macarons infused with cardamom, layered with pistachio cream and a refined nutty finish.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/d4.jpg" alt="Gulab Jamun">
+            <h3>Saffron Phirni Tart</h3>
+            <p>Creamy saffron phirni set in a crisp almond tart, finished with pistachio and rose petals.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/rasmalai.jpg" alt="Rasmalai">
+            <h3>Saffron Silk Rasmalai</h3>
+            <p>Delicate cottage cheese dumplings soaked in saffron-infused sweet cream, finished with pistachio crumble.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/d5.jpg" alt="Gulab Jamun">
+            <h3>Jalebi Rabri Mille-Feuille</h3>
+            <p>Crisp layered pastry filled with rich rabri cream, finished with delicate jalebi garnish.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/kulfi.jpg" alt="Kulfi">
+            <h3>Rose Petal Kulfi Delight</h3>
+            <p>Traditional slow-churned kulfi infused with rose essence and subtle floral sweetness.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/Pistachio.jpg" alt="Pistachio Eclair">
+            <h3>Pistachio Cardamom Éclair</h3>
+            <p>A modern fusion dessert filled with pistachio cream and infused with aromatic cardamom.</p>
+        </div>
+    </div>
+</section>
 
-    <div class="veg-overlay">
-
-        <h1>Divine Delights</h1>
-        <p>Pure • Fresh • Luscious • Sweet</p>
+<section id="alcoholic" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Bold & Crafted</span>
+        <h2>ALCOHOLIC BEVERAGES</h2>
+        <div class="gold-line-center"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="~/Images/Menu/masala.jpeg" alt="Royal Masala Martini">
+            <h3>Royal Masala Martini</h3>
+            <p>A refined blend of subtle Indian spices and premium spirits, crafted with modern elegance.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/drink2.jpg" alt="Mango Basil Elixir">
+            <h3>Spiced Whiskey Sour</h3>
+            <p>A bold mix of aged whiskey, citrus, and subtle Indian spice notes.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/drink1.jpg" alt="Saffron Citrus Spritz">
+            <h3>Rose Infused Wine Spritz</h3>
+            <p>Light sparkling wine blended with rose essence for a floral, refreshing sip.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/drink3.jpg" alt="Saffron Citrus Spritz">
+            <h3>Golden Honey Rum Punch desc</h3>
+            <p>A smooth blend of golden rum, honey sweetness, and citrus, finished with a refreshing tropical twist.</p>
+        </div>
 
     </div>
-
 </section>
-<div class="dessert-page-wrapper" id="dessertPage">
-    <nav class="dessert-mood-nav">
-        <button class="mood-btn active" onclick="changeMood('all', this)">All </button>
-        <button class="mood-btn" onclick="changeMood('rich', this)"> Chocolate & Rich</button>
-        <button class="mood-btn" onclick="changeMood('light', this)">Light & Floral</button>
-        <button class="mood-btn" onclick="changeMood('fruit', this)"> Fruit & Honey</button>
-    </nav>
 
-    <section id="desserts" class="menu-category-block">
-        <div class="menu-grid">
-
-            <div class="dessert-card" data-mood="rich">
-                <div class="card-img-box">
-                    <img src="/images/Molten Chocolate Eclipse.jpg" alt="Molten Chocolate">
-                    <div class="signature-tag">Hot & Molten</div>
-                </div>
-                <div class="card-content">
-                    <h3>Molten Chocolate Eclipse</h3>
-                    <p>Warm dark chocolate cake with a rich, flowing molten center.</p>
-                    <span class="price-text">₹275</span>
-                    <button class="wishlist-btn"
-                            data-name="Molten Chocolate Eclipse"
-                            data-price="275"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🍷 Pairs with: Vanilla Bean Gelato</div>
-                </div>
-            </div>
-
-            <div class="veg-card featured sold-out" data-mood="rich">
-                <div class="card-img-box"><img src="/images/Golden Caramel Lotus Cheesecake.jpg" alt="Lotus Cheesecake"></div>
-                <div class="card-content">
-                    <h3>Golden Caramel Lotus Cheesecake</h3>
-                    <p>Creamy baked cheesecake topped with glossy caramelized lotus spread.</p>
-                    <span class="price-text">₹295</span>
-                    <div class="pairing-note">☕ Pairs with: Double Espresso</div>
-                </div>
-            </div>
-
-            <div class="dessert-card" data-mood="light">
-                <div class="card-img-box">
-                    <img src="/images/Rose Saffron Milk Cloud.jpg" alt="Rose Saffron">
-                    <div class="signature-tag">Chef's Special</div>
-                </div>
-                <div class="card-content">
-                    <h3>Rose Saffron Milk Cloud</h3>
-                    <p>Soft milk pudding infused with rose and saffron, light as a cloud.</p>
-                    <span class="price-text">₹245</span>
-                    <button class="wishlist-btn"
-                            data-name="Rose Saffron Milk Cloud"
-                            data-price="245"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🍵 Pairs with: Sparkling Water or Rose Tea</div>
-                </div>
-            </div>
-
-            <div class="dessert-card" data-mood="rich">
-                <div class="card-img-box"><img src="/images/Chocolate Hazelnut Dream Slice.jpg" alt="Hazelnut Dream"></div>
-                <div class="card-content">
-                    <h3>Chocolate Hazelnut Dream Slice</h3>
-                    <p>Layers of chocolate sponge, hazelnut cream, and silky ganache.</p>
-                    <span class="price-text">₹265</span>
-                    <button class="wishlist-btn"
-                            data-name="Chocolate Hazelnut Dream Slice"
-                            data-price="265"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🥃 Pairs with: Dark Roasted Coffee</div>
-                </div>
-            </div>
-
-            <div class="dessert-card" data-mood="light">
-                <div class="card-img-box"><img src="/images/Pistachio Velvet Rasmalai.jpg" alt="Pistachio Rasmalai"></div>
-                <div class="card-content">
-                    <h3>Pistachio Velvet Rasmalai</h3>
-                    <p>Soft paneer discs soaked in creamy pistachio-flavored milk.</p>
-                    <span class="price-text">₹225</span>
-                    <button class="wishlist-btn"
-                            data-name="Pistachio Velvet Rasmalai"
-                            data-price="225"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🥜 Pairs with: Crushed Roasted Almonds</div>
-                </div>
-            </div>
-
-            <div class="dessert-card" data-mood="fruit">
-                <div class="card-img-box"><img src="/images/Honey Almond Phyllo Delight.jpg" alt="Phyllo Delight"></div>
-                <div class="card-content">
-                    <h3>Honey Almond Phyllo Delight</h3>
-                    <p>Crispy phyllo layers filled with nuts and soaked in warm honey syrup.</p>
-                    <span class="price-text">₹255</span>
-                    <button class="wishlist-btn"
-                            data-name="Honey Almond Phyllo Delight"
-                            data-price="255"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🍯 Pairs with: Greek Yogurt Dip</div>
-                </div>
-            </div>
-
-            <div class="dessert-card" data-mood="rich">
-                <div class="card-img-box"><img src="/images/Dark Chocolate Truffle Royale.jpg" alt="Truffle Royale"></div>
-                <div class="card-content">
-                    <h3>Dark Chocolate Truffle Royale</h3>
-                    <p>Rich, smooth chocolate truffles that melt instantly in your mouth.</p>
-                    <span class="price-text">₹195</span>
-                    <button class="wishlist-btn"
-                            data-name="Dark Chocolate Truffle Royale<"
-                            data-price="195"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🍓 Pairs with: Fresh Strawberries</div>
-                </div>
-            </div>
-
-            <div class="dessert-card" data-mood="fruit">
-                <div class="card-img-box">
-                    <img src="/images/Mango Bliss Tres Leches.jpg" alt="Mango Tres Leches">
-                    <div class="signature-tag">Seasonal</div>
-                </div>
-                <div class="card-content">
-                    <h3>Mango Bliss Tres Leches</h3>
-                    <p>Soft sponge soaked in mango-infused milk with creamy topping.</p>
-                    <span class="price-text">₹265</span>
-                    <button class="wishlist-btn"
-                            data-name="Mango Bliss Tres Leches"
-                            data-price="265"
-                            onclick="toggleVisitList(this)">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <div class="pairing-note">🍸 Pairs with: Mint Mojito</div>
-                </div>
-            </div>
-
+<section id="nonalcoholic" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Fresh & Refreshing</span>
+        <h2>NON-ALCOHOLIC DRINKS</h2>
+        <div class="gold-line-center"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="~/Images/Menu/mango.jpeg" alt="Mango Basil Elixir">
+            <h3>Mango Basil Elixir</h3>
+            <p>Fresh ripe mango blended with aromatic basil and a hint of citrus for a vibrant finish.</p>
         </div>
-    </section>
-</div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/saffron.jpeg" alt="Saffron Citrus Spritz">
+            <h3>Saffron Citrus Spritz</h3>
+            <p>A sparkling infusion of saffron and bright citrus notes, delicately balanced and refreshing.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/tamarind.jpeg" alt="Tamarind Spark Tonic">
+            <h3>Tamarind Spark Tonic</h3>
+            <p>Sweet and tangy tamarind infusion with a sparkling twist and a smooth herbal finish.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/drink.jpg" alt="Masala Drink">
+            <h3>Rose Lychee Cooler</h3>
+            <p>A refreshing blend of lychee and rose essence with a light floral finish.</p>
+        </div>
+    </div>
+</section>
+<a asp-page="/Menumain" class="floating-back-btn">Back to Menu</a>

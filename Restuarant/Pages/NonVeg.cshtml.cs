@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Restuarant.Pages
 {
-    public class NonVegModel : PageModel
+    public class NonvegModel : PageModel
     {
         public void OnGet()
         {

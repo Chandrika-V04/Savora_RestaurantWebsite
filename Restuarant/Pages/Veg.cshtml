@@ -1,350 +1,118 @@
 ﻿@page
 @model Restuarant.Pages.VegModel
 @{
-    ViewData["Title"] = "Menu";
-    Layout = "_Layout";
 }
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="~/css/Menu.css">
-<section class="veg-banner">
-    <img src="/images/veg.jpg" class="veg-bg-img" />
-    <div class="veg-overlay">
-        <h1>Vegetarian Delights</h1>
-        <p>Pure • Fresh • Flavorful</p>
+<link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
+
+<section class="menu-banner">
+    <div class="banner-overlay">
+        <h1>VEGETARIAN MENU</h1>
+        <div class="gold-line"></div>
+        <p>Pure Flavours. Royal Elegance.</p>
     </div>
 </section>
 
-<nav class="menu-nav-sticky">
-    <a href="#appetizers">Appetizers</a>
-    <a href="#main">Mains</a>
-    <a href="#soups">Soups</a>
-    
-    <div class="filter-divider"></div>
-    <button class="filter-btn active" onclick="filterMenu('all')">All</button>
-    <button class="filter-btn" onclick="filterMenu('jain')">Jain</button>
-    <button class="filter-btn" onclick="filterMenu('vegan')">Vegan</button>
-    
-</nav>
+<!-- CATEGORY BUTTONS -->
+<section class="menu-categories">
+    <div class="category-container">
+        <a href="#starters" class="category-btn">STARTERS</a>
+        <a href="#maincourse" class="category-btn">MAIN COURSE</a>
+        <a href="#soups" class="category-btn">SOUPS</a>
+    </div>
+</section>
 
-
-    
-    <section id="appetizers" class="menu-category-block">
-        <div class="category-header">
-            <span class="gold-subtitle">Small Plates</span>
-            <h2 class="category-title">Exquisite Appetizers</h2>
-            <div class="title-divider"></div>
+<!-- ================= STARTERS ================= -->
+<section id="starters" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Light & Flavorful</span>
+        <h2>VEG STARTERS</h2>
+        <div class="gold-line-center"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="~/Images/Menu/panner.jpg" alt="Paneer Tikka">
+            <h3>Paneer Tikka Medallions</h3>
+            <p>Chargrilled cottage cheese infused with royal spices and smoked to perfection.</p>
         </div>
-    
-            <div class="menu-grid">
-        
-        <div class="veg-card featured sold-out" data-category="regular">
-                    <div class="card-img-box">
-                <img src="~/images/Truffle Mushroom Croquettes.jpg" alt="Truffle Mushroom Croquettes">
-                        <div class="signature-tag">★ Signature</div>
-                    </div>
-                    <div class="card-content">
-                <h3>Truffle Mushroom Croquettes</h3>
-                <p>Crispy golden croquettes filled with creamy mushrooms and subtle truffle flavor.</p>
-                    <span class="price-text">₹325</span>
-                   
-                    </div>
-                </div>
-
-        <div class="veg-card featured" data-category="regular">
-                    <div class="card-img-box">
-                    <img src="~/images/Peri-Peri Paneer Skewers.jpg" alt="Veg Biryani">
-                        <div class="signature-tag">🔥 Spicy</div>
-                    </div>
-                    <div class="card-content">
-                <h3>Peri-Peri Paneer Skewers</h3>
-                <p>Char-grilled paneer cubes marinated in spicy peri-peri sauce with smoky edges</p>
-                        <span class="price-text">₹285</span>
-                        <button class="wishlist-btn"
-                                data-name="Peri-Peri Paneer Skewers"
-                                data-price="285"
-                                onclick="toggleVisitList(this)">
-                            <i class="fas fa-plus"></i>
-                        </button>
-                    </div>
-                </div>
-        <div class="veg-card featured" data-category="jain">
-                <div class="card-img-box">
-                        <img src="~/images/Crispy Lotus Stem Chips (Kamal Kakdi).jpg" alt="Crispy Lotus Stem Chips (Kamal Kakdi)">
-                <div class="signature-tag">★ Chef's Signature</div>
-                </div>
-                <div class="card-content">
-                <h3>Crispy Lotus Stem Chips (Kamal Kakdi)</h3>
-                <p>Thin-sliced lotus stem fried crisp and lightly seasoned for a crunchy bite..</p>
-                            <span class="price-text">₹225</span>
-                            <button class="wishlist-btn"
-                                    data-name="Crispy Lotus Stem Chips (Kamal Kakdi)"
-                                    data-price="225"
-                                    onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i> 
-                            </button>
-                </div>
-            </div>
-        <div class="veg-card featured" data-category="jain">
-                <div class="card-img-box">
-                            <img src="~/images/Cheese-Stuffed Zucchini Rolls.jpg" alt="Cheese-Stuffed Zucchini Rolls">
-                <div class="signature-tag">★ Chef's Signature</div>
-                </div>
-                <div class="card-content">
-                <h3>Cheese-Stuffed Zucchini Rolls</h3>
-                <p>Tender zucchini rolls stuffed with creamy cheese and herbs, lightly grilled.</p>
-                                <span class="price-text">₹295</span>
-                                <button class="wishlist-btn"
-                                        data-name="Cheese-Stuffed Zucchini Rolls"
-                                        data-price="295"
-                                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                                </button>
-                </div>
-            </div>
-
-
-        <div class="veg-card featured" data-category="vegan">
-            
-                    <div class="card-img-box">
-                    <img src="/images/Honey Chili Baby Corn Clouds.jpg" alt="Honey Chili Baby Corn Clouds">
-                    </div>
-                    <div class="card-content">
-                <h3>Honey Chili Baby Corn Clouds</h3>
-                <p>Crispy baby corn tossed in a sweet and spicy honey-chili glaze.</p>
-                                <span class="price-text">₹265</span>
-                                <button class="wishlist-btn"
-                                        data-name="Honey Chili Baby Corn Clouds"
-                                        data-price="265"
-                                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i> 
-                                </button>
-                    </div>
-                </div>
-                
-        <div class="veg-card featured" data-category="regular">
-                    <div class="card-img-box">
-                                    <img src="~/images/Spinach & Corn Cheese Medallions.jpg" alt="Spinach & Corn Cheese Medallions">
-                <div class="signature-tag">★ Chef's Signature</div>
-                    </div>
-                    <div class="card-content">
-                <h3>Spinach & Corn Cheese Medallions</h3>
-                <p>Crunchy outer layer with a soft, cheesy spinach and corn filling inside.</p>
-                                    <span class="price-text">₹245</span>
-                                    <button class="wishlist-btn"
-                                            data-name="Spinach & Corn Cheese Medallions"
-                                            data-price="245"
-                                            onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i> 
-                                    </button>
-                    </div>
-                </div>
-                </div>
-                
-
-            
-        </section>
-       
-       
-       
-    
-    
-
-                    <section id="main" class="menu-category-block">
-        <div class="category-header">
-            <span class="gold-subtitle">Main Selections</span>
-            <h2 class="category-title">Vegetarian Main Course</h2>
-            <div class="title-divider"></div>
-        </div>
-    
-        <div class="menu-grid">
-        
-        <div class="veg-card featured" data-category="regular">
-                <div class="card-img-box">
-                                    <img src="~/images/Paneer Lababdar Noir.jpg" alt="Shahi Paneer">
-                    <div class="signature-tag">★ Chef's Signature</div>
-                </div>
-                <div class="card-content">
-                <h3>Paneer Lababdar Noir</h3>
-                <p>Paneer cooked in a smoky, rich tomato-based gravy with deep, bold flavors.</p>
-                    <span class="price-text">₹395</span>
-                <button class="wishlist-btn"
-                        data-name="Paneer Lababdar Noir"
-                        data-price="395"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            </div>
-
-        <div class="veg-card featured" data-category="regular">
-                <div class="card-img-box">
-                                        <img src="~/images/Stuffed Bell Pepper in Cashew Gravy.jpg" alt="Dal Makhani">
-                <div class="signature-tag">★ Chef's Signature</div>
-                </div>
-                <div class="card-content">
-                <h3>Stuffed Bell Pepper in Cashew Gravy</h3>
-                <p>Bell peppers filled with spiced vegetables, simmered in creamy cashew sauce.</p>
-                    <span class="price-text">₹365</span>
-                <button class="wishlist-btn"
-                        data-name="Stuffed Bell Pepper in Cashew Gravy"
-                        data-price="365"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            </div>
-        <div class="veg-card featured" data-category="vegan">
-                <div class="card-img-box">
-                <img src="~/images/Malabar Vegetable Stew.jpg" alt="Dal Makhani">
-                </div>
-                <div class="card-content">
-                <h3>Malabar Vegetable Stew</h3>
-                <p>Mixed vegetables gently cooked in coconut milk with mild South Indian spices.</p>
-                                                <span class="price-text">₹345</span>
-                <button class="wishlist-btn"
-                        data-name="Malabar Vegetable Stew"
-                        data-price="345"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            </div>
-
-        <div class="veg-card featured sold-out" data-category="jain">
-                <div class="card-img-box">
-                <img src="~/images/Mushroom & Spinach Masala.jpg" alt="Dal Makhani">
-                </div>
-                <div class="card-content">
-                <h3>Mushroom & Spinach Masala</h3>
-                <p>Earthy mushrooms cooked in a smooth spinach-based gravy with subtle spices</p>
-                                                    <span class="price-text">₹325</span>
-                </div>
-            </div>
-
-            <div class="veg-card featured sold-out" data-category="vegan">
-                <div class="card-img-box">
-                                                    <img src="~/images/Thai Green Curry Vegetables.jpg" alt="Dal Makhani">
-                </div>
-                <div class="card-content">
-                <h3>Thai Green Curry Vegetables</h3>
-                <p>Fresh vegetables simmered in coconut milk with aromatic Thai green curry paste.</p>
-                                                        <span class="price-text">₹385</span>
-                </div>
-            </div>
-
-
-        <div class="veg-card featured" data-category="regular">
-                <div class="card-img-box">
-                                                        <img src="~/images/Charcoal Grilled Veg Kofta Curry.jpg" alt="Malai Kofta">
-                <div class="signature-tag">★ Chef's Signature</div>
-                </div>
-                <div class="card-content">
-                <h3>Charcoal Grilled Veg Kofta Curry</h3>
-                <p>Smoky grilled vegetable koftas served in a rich, flavorful gravy.</p>
-                                                            <span class="price-text">₹375</span>
-                <button class="wishlist-btn"
-                        data-name="Charcoal Grilled Veg Kofta Curry"
-                        data-price="375"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            </div>
-
-            <div class="veg-card featured sold-out" data-category="vegan">
-                <div class="card-img-box">
-                    <img src="~/images/Jackfruit Pepper Masala.jpg" alt="Veg Handi">
-                </div>
-                <div class="card-content">
-                <h3>Jackfruit Pepper Masala</h3>
-                <p>Tender jackfruit cooked with black pepper and spices for a meaty texture.</p>
-                 <span class="price-text">₹345</span>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="soups" class="menu-category-block">
-        <div class="category-header">
-            <span class="gold-subtitle">Warmth in a Bowl</span>
-            <h2 class="category-title">Artisan Soups</h2>
-            <div class="title-divider"></div>
-        </div>
-    
-        <div class="menu-grid">
-        
-            <div class="veg-card featured">
-                <div class="card-img-box">
-                                  <img src="~/images/Roasted Garlic & Almond Soup.jpg" alt="Tomato Basil Soup">
-                    <div class="signature-tag">★ Chef's Special</div>
-                </div>
-                <div class="card-content">
-                <h3>Roasted Garlic & Almond Soup</h3>
-                <p>Smooth, creamy soup made with roasted garlic and almonds.</p>
-                    <span class="price-text">₹180</span>
-                <button class="wishlist-btn"
-                        data-name="Roasted Garlic & Almond Soup"
-                        data-price="180"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            </div>
-
-            <div class="veg-card featured sold-out" data-category="vegan">
-                <div class="card-img-box">
-                      <img src="~/images/Thai Coconut Lemongrass Veg Soup.jpg" alt="Sweet Corn Soup">
-                </div>
-                <div class="card-content">
-                <h3>Thai Coconut Lemongrass Veg Soup</h3>
-                <p>Light coconut-based soup infused with lemongrass and Thai herbs.</p>
-                    <span class="price-text">₹160</span>
-                </div>
-            </div>
-        <div class="veg-card featured" data-category="jain">
-                
-                <div class="card-img-box">
-                     <img src="~/images/Smoked Tomato Basil Soup.jpg" alt="Manchow Soup">
-                </div>
-                <div class="card-content">
-                <h3>Smoked Tomato Basil Soup</h3>
-                <p>Charred tomatoes blended with basil for a smoky, comforting flavor.</p>
-                    <span class="price-text">₹170</span>
-                <button class="wishlist-btn"
-                        data-name="Smoked Tomato Basil Soup"
-                        data-price="170"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            
-            </div>
-
-        <div class="veg-card featured" data-category="regular">
-                <div class="card-img-box">
-                 <img src="~/images/Sweet corn foam soup.jpg" alt="Lemon Coriander">
-                </div>
-                <div class="card-content">
-                <h3>Sweet Corn Foam Soup</h3>
-                <p>Light and creamy sweet corn soup with a soft frothy texture.</p>
-                    <span class="price-text">₹150</span>
-                <button class="wishlist-btn"
-                        data-name="Sweet Corn Foam Soup"
-                        data-price="150"
-                        onclick="toggleVisitList(this)">
-                    <i class="fas fa-plus"></i>
-                </button>
-                </div>
-            </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/mushroom.jpg" alt="Mushroom Galouti">
+            <h3>Truffle Mushroom Galouti</h3>
+            <p>Soft melt-in-mouth patties enriched with aromatic truffle essence.</p>
         </div>
 
-    </section>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg1.jpg" alt="Veg Kebab">
+            <h3>Stuffed Paneer Volcano</h3>
+            <p>Crispy paneer pockets stuffed with molten cheese and herbs, served with a spicy lava dip.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg2.jpg" alt="Cheese Balls">
+            <h3>Smoked Corn & Cheese Cigars</h3>
+            <p>Golden crispy rolls filled with smoky corn and creamy cheese, served with mint aioli.</p>
+        </div>
 
-<button id="backToTop" class="back-to-top" onclick="window.scrollTo(0,0)">
-    <span class="arrow">↑</span>
-</button>
+    </div>
+</section>
 
-<div class="back-home">
-    <a asp-page="/Index">← Back to Home</a>
-</div>
+<!-- ================= MAIN COURSE ================= -->
+<section id="maincourse" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Rich & Hearty</span>
+        <h2>MAIN COURSE</h2>
+        <div class="gold-line-center"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="~/Images/Menu/dal makhani.jpg" alt="Dal Makhani">
+            <h3>Smoked Dal Makhani</h3>
+            <p>Slow-cooked black lentils simmered overnight for deep, rich flavor.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg biryani.jpg" alt="Veg Biryani">
+            <h3>Royal Vegetable Biryani</h3>
+            <p>Fragrant basmati rice layered with seasonal vegetables and saffron.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg8.jpeg" alt="Veg Biryani">
+            <h3>Malai Kofta</h3>
+            <p>Soft dumplings stuffed with dry fruits, served in a rich, creamy cashew gravy.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg7.jpeg" alt="Paneer Lababdar">
+            <h3>Paneer Lababdar Indulgence</h3>
+            <p>Paneer simmered in a rich tomato-butter gravy with subtle smoky and cramy notes.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ================= SOUPS ================= -->
+<section id="soups" class="menu-grid-section">
+    <div class="menu-heading">
+        <span class="category-subtitle">Warm & Comforting</span>
+        <h2>SOUPS</h2>
+        <div class="gold-line-center"></div>
+    </div>
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg3.jpg" alt="Tomato Soup">
+            <h3>Truffle Forest Mushroom Velouté</h3>
+            <p>A silky blend of wild mushrooms infused with truffle essence, finished with cream for a deep, earthy richness.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg4.jpg" alt="Sweet Corn Soup">
+            <h3>Saffron Infused Carrot Essence</h3>
+            <p>A vibrant carrot soup delicately infused with saffron, offering a smooth, mildly sweet.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg5.jpg" alt="Manchow Soup">
+            <h3>Emerald Broccoli Almond Soup</h3>
+            <p>A smooth and nourishing blend of broccoli and toasted almonds, enriched with subtle creaminess.</p>
+        </div>
+        <div class="menu-card">
+            <img src="~/Images/Menu/veg6.jpg" alt="Mushroom Soup">
+            <h3>Coconut Lemongrass Broth</h3>
+            <p>A light coconut broth infused with lemongrass and aromatic herbs, offering a fresh and exotic flavor.</p>
+        </div>
+    </div>
+</section>
+<a asp-page="/Menumain" class="floating-back-btn">Back to Menu</a>

@@ -1,0 +1,68 @@
+﻿@page
+@model Restuarant.Pages.MenumainModel
+@{
+}
+<link rel="stylesheet" href="~/css/Menu.css" asp-append-version="true" />
+
+<section class="menu-banner">
+    <div class="banner-overlay">
+        <span class="top-text">Crafted With Excellence</span>
+        <h1>SIGNATURE CREATIONS</h1>
+        <div class="gold-line"></div>
+        <p>Experience Our Finest Culinary Masterpieces</p>
+    </div>
+</section>
+
+<section class="editorial-menu">
+    <!-- VEG -->
+    <div class="editorial-row">
+        <div class="editorial-image">
+            <img src="~/Images/Menu/vege.jpeg" alt="Veg Menu">
+        </div>
+        <div class="editorial-content">
+            <span>Pure • Refined • Inspired</span>
+            <h2>VEGETARIAN SIGNATURES</h2>
+            <p>
+                A celebration of nature’s finest ingredients, transformed into
+                exquisite vegetarian creations with rich aromas, delicate spices,
+                and a touch of culinary artistry.
+            </p>
+            <a asp-page="/Veg" class="editorial-btn">Explore Collection</a>
+        </div>
+    </div>
+
+    <!-- NON VEG -->
+    <div class="editorial-row reverse">
+        <div class="editorial-content">
+            <span>Bold • Indulgent • Timeless</span>
+            <h2>NON-VEG SPECIALTIES</h2>
+            <p>
+                Discover a world of premium meats, flame-grilled perfection,
+                and slow-cooked delicacies infused with deep flavors and
+                Savora’s signature spice blends.
+            </p>
+            <a asp-page="/Nonveg" class="editorial-btn">Explore Collection</a>
+        </div>
+        <div class="editorial-image">
+            <img src="~/Images/Menu/nveg.jpeg" alt="Non Veg Menu">
+        </div>
+    </div>
+
+    <!-- DESSERT + DRINKS -->
+    <div class="editorial-row">
+        <div class="editorial-image">
+            <img src="~/Images/Menu/dd.jpeg" alt="Desserts and Drinks">
+        </div>
+        <div class="editorial-content">
+            <span>Decadent • Crafted • Delightful</span>
+            <h2>DESSERTS & BEVERAGES</h2>
+            <p>
+                End your journey on a sweet note with indulgent desserts,
+                handcrafted beverages, and signature mixes designed to
+                refresh, delight, and elevate every moment.
+            </p>
+            <a asp-page="/Desserts" class="editorial-btn">Explore Collection</a>
+        </div>
+    </div>
+
+</section>

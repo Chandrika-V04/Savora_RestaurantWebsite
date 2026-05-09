@@ -3,221 +3,40 @@
 @{
     Layout = null;
 }
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Savora Admin Login</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <style>
-        :root {
-            --blue: #061b36;
-            --golden: #B68A2E;
-            --golden-light: #d4a74a;
-            --white: #FFFFFF;
-            --white2: #fcfcfa;
-            --quicksand: #E6C88C;
-            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background: var(--white2);
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            height: 100vh;
-        }
-
-        /* LEFT SIDE: Cinematic Reveal */
-        .left {
-            flex: 1.2;
-            background: url('~/wwwroot/Images/restomain.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-        }
-
-            .left::before {
-                content: "";
-                position: absolute;
-                background: linear-gradient(135deg, rgba(6, 27, 54, 0.9) 0%, rgba(6, 27, 54, 0.4) 100%);
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-
-        .brand-wrapper {
-            position: relative;
-            text-align: center;
-            z-index: 1;
-        }
-
-        .brand {
-            color: var(--white);
-            font-family: 'Playfair Display', serif;
-            font-size: 84px;
-            letter-spacing: 8px;
-            margin: 0;
-            text-transform: uppercase;
-        }
-
-        .tagline {
-            color: var(--quicksand);
-            font-size: 14px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            margin-top: 10px;
-            opacity: 0.8;
-        }
-
-        /* RIGHT SIDE: Sophisticated Form */
-        .right {
-            flex: 0.8;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--white);
-            padding: 40px;
-        }
-
-        .login-box {
-            width: 100%;
-            max-width: 400px;
-            animation: slideUp 0.8s ease;
-        }
-
-       
-
-        }
-
-        .login-box h2 {
-            color: var(--blue);
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            margin-bottom: 8px;
-        }
-
-        .login-box p {
-            color: #777;
-            font-size: 14px;
-            margin-bottom: 35px;
-        }
-
-        .input-group {
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-            .input-group i {
-                position: absolute;
-                left: 15px;
-                top: 50%;
-                transform: translateY(-50%);
-                color: #ccc;
-                transition: var(--transition);
-            }
-
-        input {
-            width: 100%;
-            padding: 15px 15px 15px 45px;
-            border: 1px solid #eee;
-            border-radius: 8px;
-            font-size: 15px;
-            background: #fdfdfd;
-            box-sizing: border-box;
-            transition: var(--transition);
-        }
-
-            input:focus {
-                outline: none;
-                border-color: var(--golden);
-                background: var(--white);
-                box-shadow: 0 5px 15px rgba(182, 138, 46, 0.1);
-            }
-
-                input:focus + i {
-                    color: var(--golden);
-                }
-
-        button {
-            width: 100%;
-            padding: 16px;
-            border: none;
-            background: var(--blue);
-            color: var(--white);
-            font-size: 14px;
-            font-weight: 600;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-        }
-
-            button:hover {
-                background: var(--golden);
-                transform: translateY(-2px);
-                box-shadow: 0 10px 20px rgba(182, 138, 46, 0.2);
-            }
-
-        .footer-text {
-            text-align: center;
-            margin-top: 30px;
-            font-size: 12px;
-            color: #aaa;
-        }
-
-    
-        
-    </style>
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="/css/Admin.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
-
     <div class="container">
-
         <div class="left">
             <div class="brand-wrapper">
                 <h1 class="brand">Savora</h1>
-                <div class="tagline">Excellence in Gastronomy</div>
-            </div>
-        </div>
-
+                <div class="tagline">Rooted in tradition. Refined for today.</div></div>
+     </div>
         <div class="right">
             <div class="login-box">
                 <h2>Welcome Back</h2>
                 <p>Please enter your administrative credentials.</p>
-
                 <form method="post">
                     <div class="input-group">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" asp-for="username" placeholder="Username" required autocomplete="off" /> </div>
+                        <input type="text" asp-for="Username" placeholder="Username" />
+                    </div>
                     <div class="input-group">
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" asp-for="password" placeholder="Password" required /></div>
-
+                        <input type="password" asp-for="Password" placeholder="Password" required /></div>
                     <button type="submit">Sign In</button>
                 </form>
-
                 <div class="footer-text">
-                    &copy; 2024 Savora Restaurant Group. Protected Access.
-                </div>
+                    &copy; 2026 Savora Restaurant Group. Protected Access.</div>
             </div>
         </div>
-
     </div>
-
 </body>
 </html>

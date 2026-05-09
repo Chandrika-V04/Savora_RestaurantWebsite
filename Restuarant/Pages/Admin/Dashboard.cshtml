@@ -5,56 +5,45 @@
     ViewData["Title"] = "Admin Dashboard";
 }
 <link rel="stylesheet" href="~/css/Admin.css" />
-
 <div class="dashboard-container">
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-title">Total Reservations</div>
-            <h2 class="stat-value">@Model.TotalReservations</h2>
-        </div>
+            <h2 class="stat-value">@Model.TotalReservations</h2> </div>
         <div class="stat-card">
             <div class="stat-title">Today's Bookings</div>
-            <h2 class="stat-value">@Model.TodayReservations</h2>
-        </div>
+            <h2 class="stat-value">@Model.TodayReservations</h2></div>
         <div class="stat-card">
             <div class="stat-title">Pending</div>
-            <h2 class="stat-value" style="color: var(--golden);">@Model.PendingReservations</h2>
-        </div>
+            <h2 class="stat-value" style="color: var(--golden);">@Model.PendingReservations</h2></div>
         <div class="stat-card">
             <div class="stat-title">Approved</div>
-            <h2 class="stat-value">@Model.ApprovedReservations</h2>
-        </div>
+            <h2 class="stat-value">@Model.ApprovedReservations</h2> </div>
         <div class="stat-card">
             <div class="stat-title">Completed</div>
-            <h2 class="stat-value" style="color: #4CAF50;">@Model.CompletedReservations</h2>
-        </div>
+            <h2 class="stat-value" style="color: #4CAF50;">@Model.CompletedReservations</h2></div>
         <div class="stat-card">
             <div class="stat-title">Cancelled</div>
-            <h2 class="stat-value" style="opacity: 0.5;">@Model.CancelledReservations</h2>
-        </div>
+            <h2 class="stat-value" style="opacity: 0.5;">@Model.CancelledReservations</h2></div>
     </div>
     <div class="dashboard-lower">
         <div class="info-panel">
             <div class="panel-header">Quick Actions</div>
             <div class="panel-body">
-                <a href="/Admin/Reservations" class="action-btn">View All Bookings</a>
-            </div>
+                <a href="/Admin/Reservations" class="action-btn">View All Bookings</a></div>
         </div>
         <div class="info-panel">
             <div class="panel-header">System Status</div>
             <div class="panel-body">
                 <div class="sys-info-row">
                     <span>Management</span>
-                    <span>Savora Executive Suite</span>
-                </div>
+                    <span>Savora</span></div>
                 <div class="sys-info-row">
                     <span>Current Date</span>
-                    <span>@DateTime.Now.ToString("dd MMM yyyy")</span>
-                </div>
+                    <span>@DateTime.Now.ToString("dd MMM yyyy")</span></div>
                 <div class="sys-info-row">
                     <span>Server Time</span>
-                    <span>@DateTime.Now.ToString("hh:mm tt")</span>
-                </div>
+                    <span>@DateTime.Now.ToString("hh:mm tt")</span></div>
             </div>
         </div>
     </div>

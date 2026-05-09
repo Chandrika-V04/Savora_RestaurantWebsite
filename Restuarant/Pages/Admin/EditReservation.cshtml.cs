@@ -4,14 +4,11 @@ using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Restuarant.Models;
 using System;
-
 namespace Restuarant.Pages.Admin{
     public class EditReservationModel : PageModel{
         private readonly IConfiguration _configuration;
         public EditReservationModel(IConfiguration configuration){
-            _configuration = configuration;
-        }
-
+            _configuration = configuration;}
         [BindProperty]
         public Reservation Reservation { get; set; }
         public IActionResult OnGet(int id){
@@ -20,7 +17,6 @@ namespace Restuarant.Pages.Admin{
                 string query = @"SELECT Id, Name, PhoneNumber, Email, Date, Time, NoOfPeople,
                                  Location, SeatingPreference, EventType, DecorTheme, FoodPreference, Status
                                  FROM Reservations WHERE Id=@id";
-
                 SqlCommand cmd = new SqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@id", id);
                 conn.Open();
@@ -39,13 +35,11 @@ namespace Restuarant.Pages.Admin{
                             EventType = reader.IsDBNull(9) ? "" : reader.GetString(9),
                             DecorTheme = reader.IsDBNull(10) ? "" : reader.GetString(10),
                             FoodPreference = reader.IsDBNull(11) ? "" : reader.GetString(11),
-                            Status = reader.IsDBNull(12) ? "Pending" : reader.GetString(12)
-                        };
+                            Status = reader.IsDBNull(12) ? "Pending" : reader.GetString(12)};
                     }
                 }
             }return Page();
         }
-
         public IActionResult OnPost(int id){
             Reservation.Id = id;
             if (!ModelState.IsValid){
@@ -75,11 +69,9 @@ namespace Restuarant.Pages.Admin{
                 int rowsAffected = cmd.ExecuteNonQuery();
                 if (rowsAffected == 0){
                     ModelState.AddModelError("", "Update failed. Reservation not found.");
-                    return Page();
-                }
+                    return Page();}
             }
             TempData["SuccessMessage"] = "Changes updated successfully!";
-            return RedirectToPage("Reservations");
-        }
+            return RedirectToPage("Reservations");}
     }
 }

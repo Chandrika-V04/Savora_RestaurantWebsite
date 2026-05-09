@@ -2,42 +2,23 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home";
-    Layout = "_Layout";
-}
+    Layout = "_Layout";}
 <link rel="stylesheet" href="~/css/index.css" />
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Restaurant Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <section class="hero">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <span>Welcome to Our Restaurant</span>
-                <h1>SAVOURA</h1>
-                <p>Experience royal flavours, elegant ambience, and unforgettable dining moments.</p>
-                <a href="/Menu" class=" btn-outline-gold">Explore Menu</a>
-            </div>
-        </div>
-    </section>
+<section class="hero"> 
+    <div class="hero-overlay"> 
+        <div class="hero-content"> 
+            <span>Welcome to Our Restaurant</span> <h1>SAVORA</h1> 
+            <p>Experience royal flavours, elegant ambience, and unforgettable dining moments.</p> 
+            <a href="/Menumain" class=" btn-outline-gold">Explore Menu</a> </div> 
+        </div> 
+</section>
     <section class="about">
         <div class="about-header">
             <span class="about-subtitle">Special moments</span>
             <h2>ABOUT US</h2>
         </div>
-
         <div class="about-grid">
-            <!-- LEFT IMAGE -->
             <div class="about-image left-img"></div>
-
-            <!-- CENTER CONTENT -->
             <div class="about-content">
                 <span class="content-subtitle">Taste perception</span>
                 <h3>TRADITIONAL<br>& MODERN</h3>
@@ -49,8 +30,6 @@
                 </p>
                 <a href="/About" class="btn-outline-gold">READ MORE</a>
             </div>
-
-            <!-- RIGHT IMAGE -->
             <div class="about-image right-img"></div>
         </div>
     </section>
@@ -70,7 +49,7 @@
                 <h3>Whitefield</h3>
                 <p>Whitefield Main Road, Bengaluru</p>
                 <div class="branch-actions">
-                    <a href="/Menu" class="btn">Menu</a>
+                    <a href="/Menumain" class="btn">Menu</a>
                     <a href="/ReserveSpot" class="btn">Reservation</a>
                     <a href="/Gallery" class="btn">Gallery</a>
                     <a href="#testimonials" class="btn">Reviews</a>
@@ -85,7 +64,7 @@
                 <h3>Hennur</h3>
                 <p>Hennur Main Road, Bengaluru</p>
                 <div class="branch-actions">
-                    <a href="/Menu" class="btn">Menu</a>
+                    <a href="/Menumain" class="btn">Menu</a>
                     <a href="/ReserveSpot" class="btn">Reservation</a>
                     <a href="/Gallery" class="btn">Gallery</a>
                     <a href="#testimonials" class="btn">Reviews</a>
@@ -245,6 +224,5 @@
             </div>
         </div>
     </section>
-</body>
-</html>
+
 

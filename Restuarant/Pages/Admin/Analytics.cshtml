@@ -1,12 +1,10 @@
 ﻿@page
 @model Restuarant.Pages.Admin.AnalyticsModel
 @{
-    Layout = "_AdminLayout";
-    ViewData["Title"] = "Analytics";
+    Layout = "_AdminLayout";ViewData["Title"] = "Analytics";
 }
 <link rel="stylesheet" href="~/css/Admin.css" />
 <div class="dashboard-container">
-    <!-- STATS -->
     <div class="stats-grid">
         <div class="stat-card">
             <div class="stat-title">Total Reservations</div>
@@ -57,7 +55,6 @@
 <!-- 🔥 Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-    // SAFE DATA
     const months = @Html.Raw(Json.Serialize(Model.Months ?? new List<string>()));
     const whitefieldData = @Html.Raw(Json.Serialize(Model.WhitefieldData ?? new List<int>()));
     const hennurData = @Html.Raw(Json.Serialize(Model.HennurData ?? new List<int>()));
@@ -71,7 +68,6 @@
     const statusCounts = [@Model.PendingReservations,@Model.ApprovedReservations,
         @Model.CompletedReservations,@Model.CancelledReservations ];
 
-    // 📊 MONTHLY
     if (document.getElementById("branchChart")) {
         new Chart(document.getElementById("branchChart"), {type: 'bar',
             data: {labels: months,datasets: [
@@ -81,7 +77,6 @@
             options: {responsive: true}
         });
     }
-    //  FOOD
     if (document.getElementById("foodChart")) {
         new Chart(document.getElementById("foodChart"), {
             type: 'pie',data: {labels: foodLabels,
@@ -91,7 +86,6 @@
             }
         });
     }
-    // EVENT
     if (document.getElementById("eventChart")) {
         new Chart(document.getElementById("eventChart"), {
             type: 'pie',data: {labels: eventLabels,
@@ -102,7 +96,6 @@
             }
         });
     }
-    // STATUS
     if (document.getElementById("statusChart")) {
         new Chart(document.getElementById("statusChart"), {
             type: 'pie',
@@ -114,7 +107,6 @@
             }
         });
     }
-    // SEATING
     if (document.getElementById("seatingChart")) {
         new Chart(document.getElementById("seatingChart"), {
             type: 'bar',

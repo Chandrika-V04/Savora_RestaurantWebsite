@@ -34,45 +34,58 @@ html, body {
 /* =========================
    NAVBAR
 ========================= */
+/* =========================
+   NAVBAR UI ENHANCEMENT
+========================= */
+
 .site-header {
-    background: var(--blue);
+    background: rgba(6, 27, 54, 0.96);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(230,200,140,0.15);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
 
 .navbar {
-    padding: 18px 60px;
+    padding: 16px 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    position: relative;
 }
 
-
-/* Logo */
+/* LOGO */
 .logo a {
     color: var(--quicksand);
-    font-size: 35px;
+    font-size: 36px;
     font-weight: 700;
+    letter-spacing: 1px;
     text-decoration: none;
+    transition: 0.3s ease;
 }
 
-/* Nav Links */
+    .logo a:hover {
+        color: var(--white);
+    }
+
+/* NAV LINKS */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 28px;
+    align-items: center;
+    gap: 32px;
 }
 
     .nav-links li a {
         color: var(--white);
         text-decoration: none;
-        font-size: var(--bodytext);
+        font-size: 15px;
+        font-weight: 500;
         position: relative;
+        transition: 0.3s ease;
     }
 
-        /* Hover underline */
+        /* Hover Animation */
         .nav-links li a::after {
             content: '';
             width: 0;
@@ -88,7 +101,37 @@ html, body {
             width: 100%;
         }
 
-/* Hamburger */
+        .nav-links li a:hover {
+            color: var(--quicksand);
+        }
+
+/* RIGHT SIDE */
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* ADMIN BUTTON */
+.admin-btn {
+    background: linear-gradient( 135deg, #E6C88C, #B68A2E );
+    color: var(--blue);
+    padding: 12px 22px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.35s ease;
+    box-shadow: 0 8px 20px rgba(230,200,140,0.25);
+}
+
+    .admin-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(230,200,140,0.4), 0 0 20px rgba(230,200,140,0.3);
+        color: var(--blue);
+    }
+
+/* HAMBURGER */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -97,23 +140,36 @@ html, body {
 }
 
     .hamburger span {
-        width: 26px;
+        width: 28px;
         height: 3px;
         background: var(--white);
+        border-radius: 10px;
     }
 
-/* Mobile Nav */
+/* MOBILE */
+.mobile-admin {
+    display: none;
+}
+
 @media (max-width: 768px) {
+
+    .navbar {
+        padding: 16px 20px;
+    }
+
     .nav-links {
         position: absolute;
         top: 100%;
         right: 0;
-        width: 220px;
-        background: var(--blue);
+        width: 240px;
+        background: rgba(6, 27, 54, 0.98);
+        backdrop-filter: blur(12px);
         flex-direction: column;
         align-items: center;
-        padding: 20px 0;
+        padding: 25px 0;
         display: none;
+        border-radius: 0 0 0 18px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.2);
     }
 
         .nav-links.show {
@@ -122,6 +178,19 @@ html, body {
 
     .hamburger {
         display: flex;
+    }
+
+    .desktop-admin {
+        display: none;
+    }
+
+    .mobile-admin {
+        display: block;
+        margin-top: 10px;
+    }
+
+    .logo a {
+        font-size: 28px;
     }
 }
 
